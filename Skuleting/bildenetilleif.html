@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>leif sin bilde taking</title>
+    <style>
+        /* Make sure body takes full height with a cool gradient background */
+        :root {
+            --main-bg-gradient: linear-gradient(135deg, #000000, #0d1a26, #001f3f);
+            --button-bg: linear-gradient(45deg, #ff0000, #8b0000);
+            --button-hover-bg: linear-gradient(45deg, #ff5555, #b22222);
+            --aqua-color: #7fffd4;
+            --blueviolet-color: #8a2be2;
+        }
+
+        html, body {
+            height: 100%;
+            margin: 0;
+            background: var(--main-bg-gradient);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: var(--aqua-color);
+            user-select: none;
+            overflow-x: hidden;
+        }
+
+        /* Back button with 3D effect and smooth animations */
+        .tilbake {
+            transform: translate(-9px, -8px);
+            background: var(--button-bg);
+            color: var(--aqua-color);
+            border: 3px solid #004080;
+            border-radius: 12px;
+            width: 80px;
+            padding: 12px 0;
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-shadow: 0 0 6px #00ffff;
+            box-shadow:
+                0 0 8px #00ffff,
+                inset 0 -4px 8px rgba(255, 255, 255, 0.2),
+                0 6px 10px rgba(0, 0, 0, 0.5);
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+            user-select: none;
+            filter: drop-shadow(0 0 5px #00ffff);
+        }
+
+        .tilbake:hover {
+            background: var(--button-hover-bg);
+            transform: translate(-9px, -12px) scale(1.05);
+            box-shadow:
+                0 0 15px #00ffff,
+                inset 0 -6px 12px rgba(255, 255, 255, 0.4),
+                0 8px 20px rgba(0, 0, 0, 0.7);
+            text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff;
+            color: #e0ffff;
+        }
+
+        .tilbake:active {
+            transform: translate(-9px, -6px) scale(0.95);
+            box-shadow:
+                inset 0 2px 6px rgba(0, 0, 0, 0.7);
+        }
+
+        /* Heading with glowing neon effect */
+        h1 {
+            background-color: var(--blueviolet-color);
+            color: var(--aqua-color);
+            border: 4px solid var(--aqua-color);
+            border-radius: 12px;
+            padding: 15px 30px;
+            font-size: 2.8rem;
+            text-align: center;
+            margin-bottom: 30px;
+            text-shadow:
+                0 0 10px #8a2be2,
+                0 0 20px #7fffd4,
+                0 0 30px #8a2be2,
+                0 0 40px #00ffff;
+            box-shadow:
+                0 0 20px #8a2be2,
+                inset 0 0 15px #7fffd4;
+            user-select: none;
+        }
+
+        /* Paragraph styling */
+        p {
+            color: var(--aqua-color);
+            font-size: 1.2rem;
+            text-shadow: 0 0 6px #00ffff;
+            margin: 20px 0;
+            max-width: 600px;
+            text-align: center;
+        }
+
+        /* Image with intense border, shadows, and hover scale */
+        img {
+            border: 12px solid var(--aqua-color);
+            border-radius: 30px;
+            box-shadow:
+                0 0 25px #00ffff,
+                inset 0 0 20px #7fffd4,
+                0 10px 40px rgba(0, 255, 255, 0.6);
+            width: 320px;
+            height: 320px;
+            object-fit: cover;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            cursor: pointer;
+            filter: drop-shadow(0 0 8px #00ffff);
+        }
+
+        img:hover {
+            transform: scale(1.1) rotate(3deg);
+            box-shadow:
+                0 0 40px #00ffff,
+                inset 0 0 30px #7fffd4,
+                0 15px 60px rgba(0, 255, 255, 0.8);
+            filter: drop-shadow(0 0 12px #00ffff);
+        }
+    </style>
+</head>
+
+<body>
+    <a href="oppgaave-hub.html"><button class="tilbake">Back</button></a>
+    <h1>Leif sin bilde taking</h1>
+    <img src="../bilte redrigos de potojop/pnerep style.jpg" alt="Leif sin bilde" />
+</body>
+
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="no">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mein Arbeid Hub</title>
+
+
+  <link href="../cssfil/alltmulig.css" rel="stylesheet">
+
+</head>
+
+<body>
+  <div>
+    <a href="../index.html"><button class="tilbake">← Tilbake</button></a><br>
+    <h1>dette er fritids arbeid</h1><br>
+    <input type="text" id="searchBox" placeholder="Søk.">
+  </div>
+
+  <div class="button-container" id="buttonContainer">
+
+    <a href="bading.html" class="link-button">BADING</a>
+
+    <a href="memes.html" class="link-button">MEMES</a>
+
+    <a href="inlog.html" class="link-button">???</a>
+
+    <a href="emilsinvenstrehentetaklampe.html" class="link-button">emil lampe</a>
+  </div>
+
+  <script>
+    const searchBox = document.getElementById('searchBox');
+    const buttons = document.querySelectorAll('.link-button');
+
+    searchBox.addEventListener('input', () => {
+      const searchTerm = searchBox.value.toLowerCase();
+      buttons.forEach(button => {
+        const text = button.textContent.toLowerCase();
+        if (text.includes(searchTerm)) {
+          button.style.display = '';
+        } else {
+          button.style.display = 'none';
+        }
+      });
+    });
+  </script>
+
+</body>
+
+</html>

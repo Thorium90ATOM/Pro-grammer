@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="no">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Generelle regler for HTML og CSS</title>
+  <style>
+    /* Root background and base text colors */
+    :root {
+      --bg-color: #0b0b0b;
+      --text-color: #a0f0f0;
+      --highlight-color: #00ffff;
+      --btn-bg: #d90429;
+      --btn-color: aquamarine;
+      --btn-border: #0d3b66;
+      --shadow-glow: 0 0 15px var(--btn-color), 0 0 30px #ff0055;
+      --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      --max-width: 900px;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      font-family: var(--font-family);
+      margin: 0;
+      padding: 2rem 2.5rem;
+      line-height: 1.6;
+      user-select: text;
+      display: flex;
+      justify-content: center;
+    }
+
+    main {
+      max-width: var(--max-width);
+      width: 100%;
+    }
+
+    /* Back button with glowing neon effect */
+    .tilbake {
+      display: inline-block;
+      background-color: var(--btn-bg);
+      color: var(--btn-color);
+      border: 2.5px solid var(--btn-border);
+      border-radius: 12px;
+      width: 60px;
+      padding: 8px 0;
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+      text-align: center;
+      box-shadow: var(--shadow-glow);
+      transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+      user-select: none;
+      text-shadow: 0 0 10px var(--btn-color);
+      transform: translate(-9px, -8px);
+      margin-bottom: 1.5rem;
+    }
+
+    .tilbake:hover {
+      background-color: #f0f8ff;
+      color: var(--btn-bg);
+      border-color: var(--btn-bg);
+      box-shadow:
+        0 0 25px var(--btn-bg),
+        inset 0 0 10px var(--btn-color);
+      transform: translate(-9px, -8px) scale(1.1);
+      text-shadow: 0 0 15px var(--btn-bg);
+    }
+
+    .tilbake:active {
+      transform: translate(-9px, -8px) scale(0.95);
+      box-shadow: none;
+    }
+
+    /* Highlighted text for rules */
+    .ja {
+      color: var(--highlight-color);
+      font-weight: 600;
+      font-size: 1.1rem;
+      white-space: pre-line;
+      text-shadow: 0 0 5px var(--highlight-color);
+      background: rgba(0, 255, 255, 0.05);
+      border-left: 4px solid var(--highlight-color);
+      padding-left: 1rem;
+      border-radius: 6px;
+    }
+
+    /* Clean up spacing for links */
+    a {
+      color: var(--highlight-color);
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s ease, text-shadow 0.3s ease;
+    }
+
+    a:hover,
+    a:focus {
+      color: #66ffff;
+      text-decoration: underline;
+      text-shadow: 0 0 10px #66ffff;
+    }
+
+  </style>
+</head>
+
+<body>
+  <main>
+    <a href="oppgaave-hub.html"><button class="tilbake">Back</button></a>
+
+    <p class="ja">
+      Structure and Semantics: HTML is for defining the structure and meaning of content. Use semantic elements like header,
+      nav, main, article, section, footer, h1-h6, p, ul, ol, li, a, img, etc., to accurately represent the content's purpose.
+
+      Valid HTML: Ensure your HTML code adheres to W3C standards to ensure consistent rendering across browsers and accessibility.
+
+      Accessibility: Design HTML with accessibility in mind. Use appropriate ARIA roles and attributes, provide alternative text
+      for images (alt attribute), ensure sufficient color contrast, and enable keyboard navigation.
+
+      Separation of Concerns: Keep HTML focused on content and structure, and delegate styling to CSS. Avoid using inline styles
+      or deprecated HTML attributes for styling.
+
+      General Rules for CSS:
+      Syntax: A CSS rule consists of a selector and a declaration block.
+      Selector: Targets HTML elements to be styled (e.g., p, .class-name, #id-name).
+
+      Declaration Block: Contains one or more declarations enclosed in curly braces {}.
+      Declaration: A property-value pair, separated by a colon (:), and terminated by a semicolon (;). Example: color: red;.
+
+      Specificity: Understand how CSS rules are prioritized based on their specificity (e.g., ID selectors are more specific than
+      class selectors, which are more specific than element selectors).
+
+      Organization: Organize your CSS for maintainability. Use external stylesheets, group related styles, and consider naming
+      conventions like BEM (Block Element Modifier) for classes.
+
+      Performance: Optimize CSS for faster loading. Minimize file sizes, use efficient selectors, and avoid excessive use of complex
+      animations or transitions.
+
+      Responsiveness: Design CSS to adapt to different screen sizes and devices using techniques like media queries and flexible layouts.
+
+      Avoid !important: Use !important sparingly, as it can make CSS harder to maintain and debug. Instead, strive to manage
+      specificity effectively.
+
+      Browser Compatibility: Test your CSS across different browsers to ensure consistent rendering and address any compatibility
+      issues.
+    </p>
+  </main>
+</body>
+
+</html>

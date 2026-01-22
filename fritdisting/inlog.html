@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="no">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Prøv deg då</title>
+  <style>
+    body {
+      display: flex;
+      height: 100vh;
+      justify-content: center;
+      align-items: center;
+      font-family: sans-serif;
+      background-color: black;
+      flex-direction: column;
+      position: relative;
+      margin: 0;
+    }
+
+    .tilbake {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background-color: red;
+      color: aquamarine;
+      border: 2px solid blue;
+      border-radius: 8px;
+      width: 50px;
+      height: fit-content;
+      opacity: 0.8;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .tilbake:hover {
+      background-color: darkred;
+    }
+
+    h2 {
+      background-color: blueviolet;
+      width: fit-content;
+      color: aqua;
+      border-color: aqua;
+      border: 5px solid;
+      padding: 0.5rem 1rem;
+      margin-bottom: 1rem;
+      border-radius: 8px;
+    }
+
+    input[type="password"] {
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 6px;
+      border: 2px solid blueviolet;
+      background-color: black;
+      color: aqua;
+      width: 250px;
+      outline: none;
+      transition: border-color 0.3s ease;
+    }
+
+    input[type="password"]:focus {
+      border-color: aqua;
+    }
+
+    p {
+      color: aqua;
+      height: 1.2em;
+      margin-top: 0.5rem;
+      font-weight: bold;
+      text-align: center;
+    }
+  </style>
+  <!--Takk til Copilot for og lage denne fine inlogings sido (tomel opp nivå)-->
+</head>
+
+<body>
+  <a href="fritidsopleg-hub.html"><button class="tilbake">Back</button></a>
+
+  <h2>Enter le password</h2>
+  <input type="password" id="password" placeholder="Type password" autocomplete="off" />
+  <p id="message"></p>
+
+  <script>
+    const correctPassword = "Stig-Aldal"; // change to your desired password
+    const input = document.getElementById("password");
+    const message = document.getElementById("message");
+
+    input.addEventListener("input", () => {
+      if (input.value === correctPassword) {
+        message.textContent = "Password correct! Redirecting...";
+        setTimeout(() => {
+          window.location.href = "hemleg.html"; // change to your page
+        }, 800); // slight delay so user sees the message
+      } else if (input.value.length > 0) {
+        message.textContent = "Incorrect password.";
+      } else {
+        message.textContent = "";
+      }
+    });
+  </script>
+</body>
+
+</html>

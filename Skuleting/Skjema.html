@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="no">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Skjema</title>
+  <style>
+    :root {
+      background-color: black;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      color: aqua;
+      background-color: black;
+      padding: 1rem;
+    }
+
+    h1, h3 {
+      color: aqua;
+      margin-bottom: 0.3rem;
+    }
+
+    form {
+      margin-bottom: 2rem;
+    }
+
+    .textbox {
+      color: aqua;
+      background-color: blueviolet;
+      border-radius: 10px;
+      border: 3px solid aqua;
+      padding: 0.3rem 0.5rem;
+      width: 250px;
+      font-size: 1rem;
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    select {
+      background-color: blueviolet;
+      color: aqua;
+      border-radius: 10px;
+      border: 3px solid aqua;
+      padding: 0.3rem 0.5rem;
+      font-size: 1rem;
+      margin-bottom: 1rem;
+      width: 260px;
+      display: block;
+    }
+
+    .submit {
+      color: aqua;
+      background-color: blueviolet;
+      border: none;
+      border-radius: 8px;
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .submit:hover {
+      background-color: purple;
+    }
+
+    .tilbake {
+      transform: translate(-9px, -8px);
+      background-color: red;
+      color: aquamarine;
+      border-color: blue;
+      border-radius: 8px;
+      width: 50px;
+      height: fit-content;
+      opacity: 80%;
+      border: none;
+      cursor: pointer;
+      margin-bottom: 1rem;
+    }
+
+    /* For inline labels for checkbox and radio */
+    .inline-label {
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      margin-bottom: 0.5rem;
+      font-weight: normal;
+    }
+
+    input[type="checkbox"], input[type="radio"] {
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <a href="oppgaave-hub.html"><button class="tilbake">Back</button></a>
+
+  <h1>Bruk av skjema</h1>
+
+  <form action="Skjema.html" method="get">
+    <label for="name"><h3>Name:</h3></label>
+    <input id="name" class="textbox" type="text" name="Name" maxlength="20" />
+
+    <label for="password"><h3>Password:</h3></label>
+    <input id="password" class="textbox" type="password" name="Password" maxlength="20" />
+
+    <input class="submit" type="submit" value="Send inn" />
+  </form>
+
+  <form>
+    <label for="felt1"><h3>felt1:</h3></label>
+    <input id="felt1" type="text" name="felt1" maxlength="20" />
+
+    <label for="felt2"><h3>felt2:</h3></label>
+    <input id="felt2" type="password" name="felt2" maxlength="20" />
+
+    <label for="felt3"><h3>dropdown menu:</h3></label>
+    <select id="felt3" name="felt3">
+      <option value="1">VG</option>
+      <option value="2">Dagbladet</option>
+      <option value="3">Andeby Tidene</option>
+    </select>
+
+    <h3>sjekkboksar:</h3>
+    <label class="inline-label" for="felt4">
+      <input id="felt4" type="checkbox" name="felt4" value="1" />
+      Donald Duck
+    </label>
+
+    <label class="inline-label" for="felt5">
+      <input id="felt5" type="checkbox" name="felt5" value="2" />
+      Anton Duck
+    </label>
+
+    <label class="inline-label" for="felt6">
+      <input id="felt6" type="checkbox" name="felt6" value="3" />
+      Onkel Skrue
+    </label>
+
+    <h3>radiobutton:</h3>
+
+    <label class="inline-label" for="radio1">
+      <input id="radio1" type="radio" name="felt7" value="1" />
+      Blå
+    </label>
+
+    <label class="inline-label" for="radio2">
+      <input id="radio2" type="radio" name="felt7" value="2" />
+      Rød
+    </label>
+
+    <label class="inline-label" for="radio3">
+      <input id="radio3" type="radio" name="felt7" value="3" />
+      Grønn
+    </label>
+
+    <h3>date:</h3>
+    <input type="date" name="date" />
+
+    <h3>Buttons:</h3>
+    <input type="submit" class="submit" value="Submit" />
+    <input type="reset" class="submit" value="Reset" />
+  </form>
+</body>
+
+</html>

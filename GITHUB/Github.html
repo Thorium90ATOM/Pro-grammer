@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>another hub</title>
+    <link rel="stylesheet" href="../cssfil/alltmulig.css">
+</head>
+<body>
+
+    <div class="header">
+        <a href="../index.html"><button class="tilbake">← Tilbake</button></a>
+        <h1>ANOTHER HUB</h1><br>
+        <input type="text" id="searchBox" placeholder="Søk etter oppgave, f.eks. 'kode1' eller 'tabel'...">
+    </div>
+
+    <div class="button-container" id="buttonContainer">
+        <a href="javascript/basis_html_prosjekt/index.html" class="link-button">JavaScript Basis HTML Prosjekt</a>
+    </div>
+
+    <script>
+        const searchBox = document.getElementById('searchBox');
+        const buttons = document.querySelectorAll('.link-button');
+
+        searchBox.addEventListener('input', () => {
+            const searchTerm = searchBox.value.toLowerCase();
+            buttons.forEach(button => {
+                const text = button.textContent.toLowerCase();
+                if (text.includes(searchTerm)) {
+                    button.style.display = '';
+                } else {
+                    button.style.display = 'none';
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>

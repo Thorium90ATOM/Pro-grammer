@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Emil Velken Soldal Formatering</title>
+    <style>
+        /* Root background with smooth gradient */
+        :root {
+            --bg-gradient: linear-gradient(135deg, #000000, #0a0a0a, #00111f);
+            --aqua-color: #7fffd4;
+            --red-color: #ff0000;
+            --blue-color: #0000ff;
+            --font-stack: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* Basic resets and full viewport height */
+        html, body {
+            height: 100%;
+            margin: 0;
+            background: var(--bg-gradient);
+            font-family: var(--font-stack);
+            color: var(--aqua-color);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 30px 20px;
+            user-select: none;
+        }
+
+        /* Back button: larger, glowing, 3D with hover animation */
+        .tilbake {
+            transform: translate(-9px, -8px);
+            background: linear-gradient(45deg, #ff4444, #aa0000);
+            color: var(--aqua-color);
+            border: 3px solid var(--blue-color);
+            border-radius: 12px;
+            width: 90px;
+            padding: 12px 0;
+            font-weight: 700;
+            font-size: 1.15rem;
+            text-shadow: 0 0 8px #00ffff;
+            box-shadow:
+                0 0 12px #00ffff,
+                inset 0 -4px 10px rgba(255, 255, 255, 0.3),
+                0 6px 15px rgba(0, 0, 0, 0.6);
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+            filter: drop-shadow(0 0 6px #00ffff);
+            margin-bottom: 25px;
+        }
+
+        .tilbake:hover {
+            background: linear-gradient(45deg, #ff7777, #cc2222);
+            transform: translate(-9px, -12px) scale(1.1);
+            box-shadow:
+                0 0 20px #00ffff,
+                inset 0 -6px 14px rgba(255, 255, 255, 0.5),
+                0 10px 25px rgba(0, 0, 0, 0.8);
+            color: #e0ffff;
+            text-shadow: 0 0 14px #00ffff, 0 0 30px #00ffff;
+        }
+
+        .tilbake:active {
+            transform: translate(-9px, -6px) scale(0.95);
+            box-shadow:
+                inset 0 3px 6px rgba(0, 0, 0, 0.8);
+        }
+
+        /* Text headings with layered glow effects */
+        .formatsidetext {
+            color: var(--aqua-color);
+            text-shadow:
+                0 0 6px #00ffff,
+                0 0 12px #00ffff,
+                0 0 18px #00ffff;
+            user-select: text;
+        }
+
+        h1.formatsidetext {
+            font-size: 3rem;
+            margin: 10px 0 5px;
+            text-transform: uppercase;
+            font-weight: 900;
+        }
+
+        h2.formatsidetext {
+            font-size: 2.5rem;
+            margin: 8px 0 4px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+        }
+
+        h3.formatsidetext {
+            font-size: 2rem;
+            margin: 6px 0 4px;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        h6.formatsidetext {
+            font-size: 1.1rem;
+            margin: 4px 0 15px;
+            font-weight: 500;
+            font-style: italic;
+            color: #66ffff;
+        }
+
+        /* Paragraph styling with subtle glow and spacing */
+        p.formatsidetext {
+            font-size: 1.15rem;
+            line-height: 1.6;
+            max-width: 650px;
+            text-align: center;
+            margin-bottom: 25px;
+            text-shadow: 0 0 4px #00ffff;
+        }
+
+        /* Bold text styling */
+        b {
+            color: #00ffff;
+            font-weight: 900;
+            text-shadow: 0 0 8px #00ffff;
+        }
+
+        /* Underlined text styling */
+        u {
+            color: #66ffff;
+            text-decoration-thickness: 3px;
+            text-underline-offset: 4px;
+            text-shadow: 0 0 4px #66ffff;
+        }
+
+        /* Italic text styling */
+        i {
+            font-style: italic;
+            color: #99ffff;
+            text-shadow: 0 0 6px #99ffff;
+        }
+
+        /* Nested combined styles for <i><u><b> */
+        i > u > b {
+            color: #00ffff;
+            text-shadow:
+                0 0 10px #00ffff,
+                0 0 20px #00ffff;
+            font-weight: 900;
+            font-style: italic;
+            text-decoration-thickness: 3px;
+            text-underline-offset: 5px;
+        }
+
+        /* Link styling with glowing effect */
+        a {
+            color: var(--aqua-color);
+            font-weight: 700;
+            text-decoration: none;
+            text-shadow: 0 0 6px #00ffff;
+            transition: color 0.3s ease, text-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        a:hover,
+        a:focus {
+            color: #66ffff;
+            text-shadow:
+                0 0 12px #00ffff,
+                0 0 24px #00ffff;
+            outline: none;
+        }
+
+        /* Image styling with bright borders and shadow */
+        img {
+            border: 6px solid var(--aqua-color);
+            border-radius: 20px;
+            box-shadow:
+                0 0 25px #00ffff,
+                inset 0 0 15px #66ffff;
+            max-width: 320px;
+            width: 100%;
+            height: auto;
+            transition: transform 0.35s ease, box-shadow 0.35s ease;
+            cursor: pointer;
+            filter: drop-shadow(0 0 6px #00ffff);
+            margin-top: 15px;
+        }
+
+        img:hover {
+            transform: scale(1.05) rotate(2deg);
+            box-shadow:
+                0 0 40px #00ffff,
+                inset 0 0 25px #66ffff,
+                0 10px 50px rgba(0, 255, 255, 0.9);
+            filter: drop-shadow(0 0 10px #00ffff);
+        }
+
+        /* Fix improper anchor closing */
+        a:last-of-type {
+            display: block;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="oppgaave-hub.html"><button class="tilbake">Back</button></a>
+
+    <h1 class="formatsidetext">Hello Mario</h1>
+    <h2 class="formatsidetext">Hello Mario</h2>
+    <h3 class="formatsidetext">Hello Mario</h3>
+    <h6 class="formatsidetext">Hello Mario</h6>
+
+    <p class="formatsidetext">
+        P er for vanleg tekst<br />
+        og h1-6 er størrelse på tekst (overskrift). b er for feit tekst
+        <b>Feit tekst eksempel</b> <br />
+        u er for understrek på tekst <br />
+        <u>tekst med understrek</u><br />
+        i er for <i>Kursiv</i><br />
+        <i><u><b>Emil Velken Soldal</b></u></i><br />
+        <br />
+        <a href="https://www.1881.no/person/voss/voss/emil-velken-soldal_33808575S1" target="_blank" rel="noopener noreferrer">
+            dette er lenke til Emil Velken Soldal
+        </a>
+    </p>
+
+    <img src="../bilte redrigos de potojop/emil.png" alt="Emil Velken Soldal" />
+    <!-- detter er ein kommentar om emil sin mason jar som han har amiibo i -->
+</body>
+
+</html>

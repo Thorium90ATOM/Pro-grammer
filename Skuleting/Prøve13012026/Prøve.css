@@ -1,0 +1,101 @@
+:root {
+    background-color: rgba(183, 179, 179, 0.7);
+    font-family: Arial, sans-serif;
+
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+
+.navbar {
+    background-color: rgb(7, 19, 156);
+    height: 50px;
+    display: flex;
+    align-items: center;
+
+    padding: 0 20px;
+    gap: 20px;
+    transition: all 1s ease;
+}
+
+
+.nav,
+.nav-home {
+    padding: 10px 15px;
+
+    margin: 0;
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.9);
+    text-shadow: 0 2px 8px rgba(255, 255, 255, 0.6);
+    display: inline-block;
+
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.nav:hover {
+    color: rgb(127, 255, 212);
+    text-shadow: 0 4px 12px rgba(20, 254, 176, 0.8);
+}
+
+
+.nav-home {
+    color: black;
+}
+
+
+
+.hovud {
+    height: 370px;
+    width: 400px;
+    margin: 120px auto;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.title {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.contact{
+    align-self: center;
+    margin: 10px;
+}
+
+
+
+#membership-form.contact {
+  max-width: 480px;      
+  width: 90%;          
+  margin: 40px auto;     
+  padding: 16px;
+  box-sizing: border-box;
+}
+
+
+#membership-form.contact label {
+  display: block;
+  margin: 10px 0 6px;
+}
+
+#membership-form.contact input,
+#membership-form.contact textarea {
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  margin-bottom: 12px;
+}
+
+#membership-form.contact .btn {
+  display: inline-block;
+  padding: 10px 16px;
+  cursor: pointer;
+}

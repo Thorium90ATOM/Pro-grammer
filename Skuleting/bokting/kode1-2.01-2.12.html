@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Document</title>
+  <style>
+    :root {
+      background-color: black;
+      --red: rgb(255, 0, 0);
+      --green: rgb(0, 255, 8);
+      --white: rgb(255, 255, 255);
+      --yellow: yellow;
+      --blue: blue;
+      --brown: brown;
+      --pink: pink;
+      --orange: orange;
+    }
+
+    body {
+      background-color: var(--background-color, black);
+      font-family: Arial, sans-serif;
+      margin: 2rem;
+    }
+
+    /* Base button style */
+    button {
+      width: 50px;
+      height: 50px;
+      border: 2px solid rgb(255, 251, 0);
+      background-color: var(--white);
+      color: rgb(0, 19, 19);
+      cursor: pointer;
+      transition: background-color 0.3s ease, color 0.3s ease, text-shadow 0.3s ease;
+      font-weight: bold;
+      border-radius: 8px;
+      box-shadow: 0 0 10px #ddd;
+    }
+
+    button:hover {
+      background-color: var(--red);
+      color: var(--green);
+      text-shadow:
+        0 0 10px #00ff7b,
+        0 0 20px #00ff1e,
+        0 0 30px #06fd0a;
+      box-shadow: 0 0 15px #00ff7b;
+    }
+
+    /* Special style for back button */
+    .tilbake {
+      background-color: var(--red);
+      color: var(--green);
+      border-color: #00ff1e;
+      width: fit-content;
+      height: fit-content;
+      opacity: 0.8;
+      transform: translate(-9px, -8px);
+      text-shadow:
+        0 0 10px #ffffff,
+        0 0 20px #f9f3f6,
+        0 0 30px #fefcfd;
+      box-shadow: 0 0 15px #ff0000;
+      transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+    }
+
+    .tilbake:hover {
+      background-color: var(--white);
+      color: var(--red);
+      text-shadow:
+        0 0 10px #ffffff,
+        0 0 20px #ffffff,
+        0 0 30px #ffffff;
+      box-shadow: 0 0 20px var(--red);
+    }
+
+    /* Headings */
+    h1 {
+      color: var(--yellow);
+      background-color: var(--blue);
+      width: fit-content;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+    }
+
+    h2 {
+      color: var(--white);
+      background-color: var(--brown);
+      width: fit-content;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+    }
+
+    h3 {
+      color: black;
+      background-color: var(--pink);
+      width: fit-content;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+    }
+
+    /* Paragraph - make it natural size */
+    p {
+      color: white;
+      background-color: var(--orange);
+      max-width: 300px;
+      padding: 0.5rem;
+      border-radius: 6px;
+    }
+
+    a {
+      text-decoration: none;
+      display: inline-block;
+      margin-bottom: 1rem;
+    }
+  </style>
+</head>
+
+<body>
+  <a href="../oppgaave-hub.html"><button class="tilbake">Back</button></a>
+
+  <h1>2.01</h1>
+  <h2>2.01</h2>
+  <h3>2.01</h3>
+
+  <br><br>
+
+  <p>2.02</p>
+
+  <br><br>
+
+  <h1>2.03</h1>
+
+  <br>
+
+  <a href="https://vlfk.itslearning.com/index.aspx?SessionExpired=3" target="_blank" rel="noopener">
+    <button>lenke 1</button>
+  </a>
+
+  <br><br>
+
+  <a href="https://vossgymnas-vgs.inschool.visma.no/Login.jsp#" target="_blank" rel="noopener">
+    <button>lenke 2</button>
+  </a>
+
+  <br><br>
+
+  <a href="https://store.steampowered.com" target="_blank" rel="noopener">
+    <button>lenke 3</button>
+  </a>
+</body>
+</html>

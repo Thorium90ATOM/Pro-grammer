@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mein-Arbeid</title>
+    <link rel="stylesheet" href="../cssfil/alltmulig.css">
+</head>
+<body>
+
+    <div class="header">
+        <a href="../index.html"><button class="tilbake">← Tilbake</button></a>
+        <h1>SKULEARBEID</h1><br>
+        <input type="text" id="searchBox" placeholder="Søk etter oppgave, f.eks. 'kode1' eller 'tabel'...">
+    </div>
+
+    <div class="button-container" id="buttonContainer">
+        <a href="Rules.html" class="link-button">Rules</a>
+        <a href="format.html" class="link-button">Formatering</a>
+        <a href="oppgåve1.html" class="link-button">Opgåvene</a>
+        <a href="bildenetilleif.html" class="link-button">Bildene til Leif</a>
+        <a href="bokting/code1s10.html" class="link-button">Kode1 Side 10</a>
+        <a href="bokting/kode1s11.html" class="link-button">Kode1 Side 11</a>
+        <a href="bokting/kode1s12.html" class="link-button">Kode1 Side 12</a>
+        <a href="tabel.html" class="link-button">Tabel</a>
+        <a href="Skjema.html" class="link-button">Skjema</a>
+        <a href="tabelle.html" class="link-button">Ebu Baran</a>
+        <a href="bokting/kode1-2.01-2.12.html" class="link-button">kode1 2.01-2.12</a>
+        <a href="bokting/kode1-1.01-1.45.html" class="link-button">kode1 1.01-1.45</a>
+         <a href="css-bilde.html" class="link-button">TOG</a>
+         <a href="../bootstrap/mockup.html" class="link-button">Mocking up</a>
+          <a href="../bootstrap/index.html" class="link-button">index 2.0</a>
+          <a href="../bootstrap/resturangting.html" class="link-button">resturang meny</a>
+           <a href="../bootstrap/Mockup med custom css.html" class="link-button">mockup2</a>
+           <a href="../Crazygamer-oppg/index.html" class="link-button">CrazyGamer oppg</a>
+           <a href="forebud-prøve.html" class="link-button">Prøveforebud</a>
+           <a href="../sitemap.xml" class="link-button">SITEMAP</a>
+            <a href="Prøve13012026/index.html" class="link-button">13012026 prøve</a>
+            <a href="../GITHUB/Github.html" class="link-button">GITHUB</a>
+    </div>
+
+    <script>
+        const searchBox = document.getElementById('searchBox');
+        const buttons = document.querySelectorAll('.link-button');
+
+        searchBox.addEventListener('input', () => {
+            const searchTerm = searchBox.value.toLowerCase();
+            buttons.forEach(button => {
+                const text = button.textContent.toLowerCase();
+                if (text.includes(searchTerm)) {
+                    button.style.display = '';
+                } else {
+                    button.style.display = 'none';
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>

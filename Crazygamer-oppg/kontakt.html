@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="no">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bli medlem | CrazyGamer</title>
+    <link rel="stylesheet" href="style.css">
+        <meta name="description" content="Ta Kontakt med oss i CRAZYGAMER">
+</head>
+
+<body>
+
+<header>
+    <div class="logo-container">
+        <img src="crazygamerlogo.jpg" alt="CrazyGamer Logo" class="logo">
+        <h1>CRAZYGAMER</h1>
+    </div>
+    <nav>
+        <ul>
+            <li><a href="index.html" class="tekst">Hjem</a></li>
+            <li><a href="kontakt.html" class="tekst">Bli medlem</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <section class="form-section">
+        <h2>Søk medlemskap</h2>
+
+        <h3>PRISER:</h3>
+        <p>Drop in 100kr (ingen fordeler)</p><br>
+        <p>Noob Gamer: 500kr i året (Mat og drikke inkludert)</p><br>
+        <p>Hardcore Gamer: 2000kr i året (Mat og drikke + PC-låning og midlertidig boplass)</p><br><br>
+
+        <form id="membership-form">
+            <label for="name">Navn</label>
+            <input type="text" id="name" placeholder="Fornavn Etternavn" required>
+
+            <label for="email">E-post</label>
+            <input type="email" id="email" placeholder="din@email.no" required>
+
+            <label for="message">Hvorfor vil du bli medlem?</label>
+            <textarea id="message" placeholder="Skriv noen ord..." required></textarea>
+
+            <button type="submit" class="btn">Send søknad</button>
+        </form>
+
+        <div id="particles-container"></div>
+    </section>
+</main>
+
+<footer>
+    <p id="copyright">© 2025 CrazyGamer</p>
+    <a href="mailto:example@email.com" id="support">støtte@CrazyGamer.no</a>
+</footer>
+
+<script>
+    const form = document.getElementById('membership-form');
+    const particlesContainer = document.getElementById('particles-container');
+
+    form.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        for (let i = 0; i < 15; i++) {
+            let particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.top = '0%';
+            particle.style.background = `hsl(${Math.random() * 360}, 70%, 60%)`;
+            particle.style.animationDuration = 0.5 + Math.random() * 0.5 + 's';
+            particlesContainer.appendChild(particle);
+
+            setTimeout(() => particle.remove(), 1000);
+        }
+
+        setTimeout(() => form.reset(), 500);
+    });
+</script>
+
+</body>
+</html>

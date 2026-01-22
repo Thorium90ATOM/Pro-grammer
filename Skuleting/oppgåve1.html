@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="no">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>oppgåve</title>
+  <style>
+    /* Root background and base styles */
+    :root {
+      --bg-color: #0a0a0a;
+      --btn-bg: #e63946;
+      --btn-hover-bg: #f1faee;
+      --btn-color: aquamarine;
+      --btn-border: #1d3557;
+      --text-color: #a8dadc;
+      --heading-color: #f1faee;
+      --link-color: #00ffff;
+      --link-hover-color: #66ffff;
+      --shadow-glow: 0 0 15px var(--btn-color), 0 0 30px #ff0055;
+    }
+
+    /* Reset and base */
+    body {
+      margin: 0;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      padding: 1.5rem 2rem;
+      user-select: text;
+    }
+
+    /* Back button styling maxed out */
+    .tilbake {
+      display: inline-block;
+      transform: translate(-9px, -8px);
+      background-color: var(--btn-bg);
+      color: var(--btn-color);
+      border: 2.5px solid var(--btn-border);
+      border-radius: 12px;
+      width: 70px;
+      padding: 10px 0;
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+      text-align: center;
+      box-shadow: var(--shadow-glow);
+      transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+      user-select: none;
+      text-shadow: 0 0 10px var(--btn-color);
+    }
+
+    .tilbake:hover {
+      background-color: var(--btn-hover-bg);
+      color: var(--btn-bg);
+      border-color: var(--btn-bg);
+      box-shadow:
+        0 0 25px var(--btn-bg),
+        inset 0 0 10px var(--btn-color);
+      transform: translate(-9px, -8px) scale(1.1);
+      text-shadow: 0 0 15px var(--btn-bg);
+    }
+
+    .tilbake:active {
+      transform: translate(-9px, -8px) scale(0.95);
+      box-shadow: none;
+    }
+
+    /* Headings */
+    h1 {
+      color: var(--heading-color);
+      font-weight: 900;
+      font-size: 2.5rem;
+      text-decoration: underline;
+      text-decoration-color: var(--btn-color);
+      text-shadow: 0 0 8px var(--btn-color);
+      margin: 1.5rem 0 1rem;
+    }
+
+    /* Paragraph wrapper to avoid invalid HTML */
+    p {
+      max-width: 700px;
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+      color: var(--text-color);
+      line-height: 1.7;
+    }
+
+    /* Links */
+    a {
+      color: var(--link-color);
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s ease, text-shadow 0.3s ease;
+    }
+
+    a:hover,
+    a:focus {
+      color: var(--link-hover-color);
+      text-decoration: underline;
+      text-shadow: 0 0 8px var(--link-hover-color);
+    }
+
+    a[target="_blank"]::after {
+      content: " ↗";
+      font-size: 0.9rem;
+      color: var(--link-hover-color);
+    }
+
+    /* Image styling */
+    img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+      border-radius: 16px;
+      border: 4px solid var(--btn-color);
+      box-shadow: 0 0 20px var(--btn-color);
+      margin: 1rem 0;
+      filter: drop-shadow(0 0 8px var(--btn-color));
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+
+    img:hover {
+      transform: scale(1.05) rotate(1deg);
+      box-shadow: 0 0 30px var(--btn-color), 0 0 40px var(--link-hover-color);
+    }
+
+    /* Underline tags styling */
+    u {
+      text-decoration-color: var(--btn-color);
+      text-shadow: 0 0 6px var(--btn-color);
+      font-weight: 600;
+    }
+
+    /* Bold and italic styling for emphasis */
+    b {
+      color: var(--btn-hover-bg);
+      text-shadow: 0 0 10px var(--btn-hover-bg);
+      font-weight: 900;
+    }
+
+    i {
+      color: #9bf6ff;
+      font-style: italic;
+      text-shadow: 0 0 6px #9bf6ff;
+    }
+
+    /* Spacing fixes for br */
+    br {
+      line-height: 1.5;
+    }
+  </style>
+</head>
+
+<body>
+
+  <a href="oppgaave-hub.html"><button class="tilbake">Back</button></a><br /><br />
+  <a href="format.html">Format side</a><br />
+  <a href="https://www.1881.no/person/voss/voss/lisbeth-velken-meyer_14937667S1" target="_blank">Emil Velken Soldal si mor</a><br />
+  <a href="https://www.roblox.com/home" target="_blank"><u>Roblox</u></a><br />
+
+  <h1><u>meg</u></h1>
+
+  <img src="../bilte redrigos de potojop/pnerep.JPG" height="350" width="200" alt="Peter Tharaldsen Byrkje" />
+
+  <p>
+    Eg heiter <u>Peter Tharaldsen Byrkje</u><br />
+    eg liker <b>The Elder Scrolls</b> spel serien<br />
+    eg er ein stor fan av <i>Leif Sin programering time</i>
+  </p>
+
+  <h1><u>Unudvendig lorem ipsum</u></h1>
+
+  <p>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean pellentesque ante sit amet ante pretium aliquam. Nunc
+    pellentesque ullamcorper laoreet. Nulla scelerisque nunc ultricies, egestas risus at, laoreet lorem. Nullam pharetra
+    enim non risus imperdiet lobortis. Etiam vehicula commodo metus a rhoncus. Quisque efficitur sodales urna et molestie.
+    Aenean aliquet nisl a quam fermentum, in pharetra velit egestas. Vivamus vitae vestibulum leo, sit amet vehicula
+    tellus. Nulla molestie elit eu posuere laoreet. Aliquam sed fringilla eros, eget tincidunt arcu. Ut libero metus,
+    mollis nec nisi vel, commodo luctus mauris.
+  </p>
+  <p>
+    Nullam sit amet ornare lectus. Vestibulum porttitor dui at ipsum sodales tincidunt. Nullam non venenatis odio. Sed at
+    lacus consectetur, suscipit velit ut, semper erat. Duis tincidunt nibh luctus ante lobortis, eget vestibulum ligula
+    volutpat. Fusce eget aliquam leo. Ut fringilla quam nec enim posuere, ut finibus sem pulvinar. Aenean non lacus
+    tristique, hendrerit est ut, pharetra nibh. Praesent mollis congue nisi at consectetur. Vestibulum tempus ante et
+    dignissim tristique. Donec a varius neque, a ornare massa. Mauris eget risus in ex ullamcorper maximus finibus vel
+    lacus. Quisque laoreet condimentum urna, at efficitur velit tincidunt a. Curabitur gravida, magna ut tincidunt auctor,
+    lectus justo ornare eros, eget faucibus sem lacus efficitur dui. Pellentesque sit amet turpis sit amet urna tempus
+    sodales id sed quam.
+  </p>
+  <p>
+    Duis finibus ultrices eros vitae luctus. Donec pharetra dolor eu dapibus pharetra. Morbi vel malesuada ipsum, id
+    hendrerit mauris. Pellentesque volutpat lectus ipsum, id congue risus iaculis in. Suspendisse pretium enim id tortor
+    tincidunt aliquet. Donec ac velit eleifend nisi iaculis faucibus et in sapien. Nunc sed ipsum finibus, dignissim neque
+    et, finibus lacus. Duis pretium orci sit amet ipsum tempor tincidunt. Sed non viverra justo, ut consequat quam. Sed id
+    magna eleifend, dictum odio nec, lobortis neque. Morbi aliquam iaculis lectus, a mollis felis convallis at. Duis
+    pellentesque eros laoreet massa rhoncus efficitur. Quisque gravida nunc et justo tempus, sit amet eleifend sem
+    placerat. Quisque et feugiat ante. Duis nec elit eu elit imperdiet placerat eu quis ante.
+  </p>
+  <p>
+    In hac habitasse platea dictumst. Nullam mollis massa vel feugiat euismod. Sed id consequat est, vel blandit leo. In
+    hac habitasse platea dictumst. Ut vitae malesuada diam. Aenean blandit volutpat commodo. Vestibulum ac elit eu tellus
+    convallis placerat ut non erat. Donec fringilla turpis in sollicitudin porttitor. Nam mollis erat eros, nec placerat
+    dui tempus sit amet. Nullam tempor pretium est vitae sodales. Sed commodo nulla risus, id tristique ante porttitor
+    non. Morbi maximus in tortor id elementum. Aliquam ac ante in diam ullamcorper mattis. Nunc at porttitor erat.
+  </p>
+  <p>
+    Praesent magna erat, tempus eget tellus ut, molestie pharetra odio. Integer ut ultrices nibh. Sed quam turpis, accumsan
+    ut viverra eleifend, mollis at ipsum. Mauris efficitur ut sapien vel hendrerit. Fusce sed consectetur nibh. Sed aliquet
+    luctus ante, venenatis tristique purus imperdiet sed. Sed sed placerat est. Sed gravida euismod ligula, ut blandit
+    lacus vestibulum ut. Donec varius fringilla elit et molestie. Aliquam semper nibh nisi. Curab
