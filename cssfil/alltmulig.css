@@ -386,3 +386,31 @@ color: #9505e3eb;
 .Forebud-prøve-EKSTERN{
     transform: translate(57.6px, 81px);
 }
+
+.javascript-particlebutton {
+    width: 150px;
+    height: 50px;
+    border-radius: 25px;
+    border: 2px solid;
+    border-color: #15000080;
+    background: rgba(255, 255, 255, 0.07);
+    backdrop-filter: blur(25px) saturate(180%);
+    color: #bfe7ff;
+    font-size: 1.05rem;
+    font-weight: 600;
+    box-shadow:
+        0 6px 25px rgba(0, 255, 255, 0.12),
+        0 0 20px rgba(150, 90, 255, 0.18),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.14);
+    cursor: pointer;
+    transition: 0.25s ease;
+    margin: 10px;
+}
+
+.javascript-particlebutton:hover {
+    transform: scale(1.14);
+    background: rgba(255, 255, 255, 0.10);
+    box-shadow:
+        0 10px 35px rgba(140, 90, 255, 0.25),
+        0 0 28px rgba(0, 255, 255, 0.18);
+}

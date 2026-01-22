@@ -19,8 +19,6 @@ document.write("<br>the width of your screen is " + window.innerWidth + " pixels
 document.write("<br>the height of your screen is " + window.innerHeight + " pixels");
 //3. wrtite out the adress of the website your on//
 document.write("<br>the adress of this website is " + window.location.href);
-//4.this code switches the text in the h1 element with alo//
-document.getElementById("top").innerHTML = "alo";
 //5. log messages to the console//
 console.log("this is a log message");
 console.error("this is an error message");
