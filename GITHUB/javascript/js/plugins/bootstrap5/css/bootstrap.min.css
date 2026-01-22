@@ -1,0 +1,29 @@
+/*
+  Dummy Bootstrap 5 fil.
+  Bytt gjerne denne med ekte bootstrap.min.css fra getbootstrap.com.
+*/
+
+/* Minimal fallback for demo */
+.container{max-width:960px;margin:0 auto;padding:0 12px}
+.row{display:flex;flex-wrap:wrap;margin:-8px}
+.col-md-8,.col-md-4{padding:8px;box-sizing:border-box;width:100%}
+@media (min-width:768px){.col-md-8{width:66.666%}.col-md-4{width:33.333%}}
+.btn{display:inline-block;padding:.5rem 1rem;border:1px solid transparent;border-radius:.375rem;cursor:pointer}
+.btn-primary{background:#0d6efd;color:#fff}
+.w-100{width:100%}
+.py-4{padding-top:1.5rem;padding-bottom:1.5rem}
+.border{border:1px solid #dee2e6}
+.border-top{border-top:1px solid #dee2e6}
+.border-bottom{border-bottom:1px solid #dee2e6}
+.rounded{border-radius:.5rem}
+.bg-light{background:#f8f9fa}
+.text-muted{color:#6c757d}
+.h3{font-size:1.75rem}
+.h5{font-size:1.25rem}
+.h6{font-size:1rem}
+.mb-0{margin-bottom:0}
+.mb-1{margin-bottom:.25rem}
+.my-4{margin-top:1.5rem;margin-bottom:1.5rem}
+.mt-2{margin-top:.5rem}
+.small{font-size:.875rem}
+.g-3{gap:1rem}
