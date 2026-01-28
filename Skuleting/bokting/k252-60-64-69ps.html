@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kode 2 book greie</title>
+</head>
+<style>
+    .tilbake {
+        transform: translate(6px, 10px);
+        width: 129px;
+        height: 40px;
+        border-radius: 20px;
+        border: none;
+
+
+        background: rgba(113, 3, 3, 0.386);
+        backdrop-filter: blur(25px) saturate(180%);
+
+        color: #ffffff;
+        font-size: 1.05rem;
+        font-weight: 600;
+
+        box-shadow:
+            0 6px 25px rgba(88, 1, 82, 0.12),
+            0 0 20px rgba(38, 1, 102, 0.18),
+            inset 0 0 0 1px rgba(101, 25, 25, 0.14);
+
+        cursor: pointer;
+        transition: 0.5s ease;
+    }
+
+    .tilbake:hover {
+        background-color: #ad040481;
+        color: rgba(6, 168, 168, 0.473);
+        box-shadow: 0 0 20px red;
+        transform: translate(6px, 10px) scale(1.02);
+    }
+
+    body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+        background: linear-gradient(to right, #8fc7f8, #20c138);
+    }
+
+    .tingeling {
+        color: #ffffff;
+        text-shadow: 2px 2px 4px #000000;
+        text-align: center;
+    }
+</style>
+
+<body>
+    <a href="../oppgaave-hub.html"><button class="tilbake">← Tilbake</button></a>
+    <h1 class="tingeling">Kode 2 book greie</h1>
+    <hr>
+    <script>
+        // 52 1 variabel med verdi lagt inn med document.write //
+        var emil = "Emil er kul";
+        document.write(emil);
+        // 52 2 to variabler som inneholder to ulike meldinger. bytt på å vise dem med document.write //
+
+        var melding1 = "Dette er melding 1";
+        var melding2 = "Dette er melding 2";
+        document.write("<div id='changing text'>" + melding1 + "</div>");
+        const changingTextDiv = document.getElementById('changing text');
+
+        setInterval(() => {
+            if (changingTextDiv.innerHTML === melding1) {
+                changingTextDiv.innerHTML = melding2;
+            } else {
+                changingTextDiv.innerHTML = melding1;
+            }
+        }, 2000); // Bytt melding hvert 2. sekund
+
+        // 52 3 opprett to variabler som inneholder et fornavn og et etternavn. konka-tener (sett sammen) tekst og variabler i document.write for å vise fullt navn //
+        var fornavn = "Ola";
+        var etternavn = "Nordmann";
+        document.write("<br>" + "Fullt navn: " + fornavn + " " + etternavn);
+</script>
+    <br>
+    <script>
+        // 52 4  promt boks that asks user for name and then displays "Wellcome (name)"//
+        var navn = prompt("Hva er ditt navn?");
+        document.write("<br>" + "Velkommen " + navn + "!");
+
+        // 52 5 create a invitation where where the users name is included 5 times //
+        var invitasjon = "Kjære " + navn + ", du er herved invitert til min bursdag! Jeg håper du kan komme, " + navn + ". Det vil bli gøy å se deg der, " + navn + "! Husk å ta med en gave, " + navn + ". Vi sees snart, " + navn + "!";
+        document.write("<br>" + invitasjon);
+
+        //52 6 create an adjective story where the user inputs 6 different adjectives//
+        var adj1 = prompt("Skriv et adjektiv:");
+        var adj2 = prompt("Skriv et annet adjektiv:");
+        var adj3 = prompt("Skriv et tredje adjektiv:");
+        var adj4 = prompt("Skriv et fjerde adjektiv:");
+        var adj5 = prompt("Skriv et femte adjektiv:");
+        var adj6 = prompt("Skriv et sjette adjektiv:");
+
+        var historie = "Det var en " + adj1 + " dag i " + adj2 + " byen. En " + adj3 + " person gikk nedover gaten og så en " + adj4 + " katt. Plutselig begynte det å regne " + adj5 + " dråper, og personen løp inn i en " + adj6 + " kafé for å søke ly.";
+        document.write("<br>" + historie);
+        // 60 1 arealet av et rektangel // er høyde * bredde og omkretsen er 2*høyde + bredde definer to variabler med variabelnavn høyde og bredde lag ein kode som. A) regner ut arealet med teksten arealet er:(areal) B) regner ut omkretsen med teksten omkretsen er:(omkrets) //
+        var høyde = 5;
+        var bredde = 10;
+        var areal = høyde * bredde;
+        var omkrets = 2 * høyde + 2 * bredde;
+        document.write("<br>" + "Arealet er: " + areal);
+        document.write("<br>" + "Omkretsen er: " + omkrets);
+</script>
+<br>
+<script>
+
+        // a) 1–6
+        var terning = Math.floor(Math.random() * 6) + 1;
+        document.write("Terning: " + terning + "<br>");
+
+        // b) 0–10
+        var tall1 = Math.floor(Math.random() * 11);
+        document.write("0–10: " + tall1 + "<br>");
+
+        // c) 10–20
+        var tall2 = Math.floor(Math.random() * 11) + 10;
+        document.write("10–20: " + tall2);
+
+        var r = Number(prompt("Skriv inn radiusen til kula:"));
+
+        // a) Omkrets
+        var omkrets = 2 * Math.PI * r;
+        document.write("Omkrets: " + omkrets + "<br>");
+
+        // b) Volum
+        var volum = (4 * Math.PI * Math.pow(r, 3)) / 3;
+        document.write("Volum: " + volum + "<br>");
+
+        // c) Overflateareal
+        var areal = 4 * Math.PI * Math.pow(r, 2);
+        document.write("Overflateareal: " + areal);
+
+        /* d) Kommentar:
+        Programmet regner ut omkrets,
+        volum og overflateareal
+        til en kule.
+        */
+
+        var poeng = Number(prompt("Antall poeng:"));
+        var maksPoeng = Number(prompt("Antall mulige poeng:"));
+
+        var karakter = Math.round((poeng / maksPoeng) * 6);
+        document.write("Karakter: " + karakter);
+
+        var hoyde = Number(prompt("Høyde i meter:"));
+        var vekt = Number(prompt("Vekt i kg:"));
+
+        var kmi = vekt / (hoyde * hoyde);
+        document.write("KMI: " + kmi.toFixed(2));
+
+        var antallFrukt = "3";
+        var antallGronnsaker = "2";
+
+        var antallVarer = antallFrukt + antallGronnsaker;
+        document.write(antallVarer);
+
+        var pris = Number(prompt("Pris uten moms:"));
+        var prisMedMoms = pris * 1.25;
+
+        document.write(prisMedMoms.toFixed(2));
+
+        var datamengde = Number(prompt("Datamengde (GB):"));
+        var samtaler = Number(prompt("Antall samtaler:"));
+        var ringetid = Number(prompt("Ringetid (min):"));
+        var sms = Number(prompt("Antall SMS:"));
+        var mms = Number(prompt("Antall MMS:"));
+
+        var pris = datamengde * 10 +
+            samtaler * 0.89 +
+            ringetid * 0.39 +
+            sms * 0.69 +
+            mms * 1.99;
+
+        document.write("Pris: " + pris.toFixed(2) + " kr");
+
+        var liste = ["eple", "banan", "pære", "appelsin", "druer"];
+        document.write(liste[liste.length - 1]);
+
+        var frukt1 = { navn: "Eple", pris: 5 };
+        var frukt2 = { navn: "Banan", pris: 4 };
+        var frukt3 = { navn: "Pære", pris: 6 };
+
+        // Bytt pris på frukt2
+        frukt2.pris = 7;
+
+        document.write(frukt2.pris);
+    </script>
+
+    <p id="Natur"></p>
+
+    <script>
+        var tekst = "Hei verden";
+        document.getElementById("Natur").innerHTML = tekst;
+    </script>
+
+    <p id="svar"></p>
+
+    <script>
+        var navn = prompt("Hva heter du?");
+        document.getElementById("svar").innerHTML = navn;
+    </script>
+
+    <p id="filmer"></p>
+
+    <script>
+        var filmer = ["Inception", "Interstellar", "Matrix"];
+
+        document.getElementById("filmer").innerHTML =
+            "<ul><li>" + filmer.join("</li><li>") + "</li></ul>";
+    </script>
+
+    <p id="tekst">Å opprette en meny</p>
+
+    <script>
+        document.getElementById("tekst").innerHTML = "Å opprette en handleliste";
+    </script>
+
+    <a href="https://www.kode.cdu.no" target="_blank">
+        <img src="../../bilte redrigos de potojop/alnal.jpg" alt="Bilde" width="200">
+    </a>
+
+    <img id="bilde" src="../../bilte redrigos de potojop/alnal.jpg" width="200">
+
+    <script>
+        document.getElementById("bilde").src = "../../bilte redrigos de potojop/alnal.jpg";
+    </script>
+
+</body>
+
+</html>
