@@ -24,19 +24,22 @@ console.log("this is a log message");
 console.error("this is an error message");
 console.warn("this is a warning message");
 //6. make a button that makes particles appear on the screen when clicked//
-function makeParticles() {
-    for (var i = 0; i < 100; i++) {
-        var particle = document.createElement("div");
-        particle.className = "particle";
-        particle.style.left = Math.random() * window.innerWidth + "px";
-        particle.style.top = Math.random() * window.innerHeight + "px";
-        document.body.appendChild(particle);
-    }
+function createParticles() {
+    var particle = document.createElement("div");
+    particle.className = "particle";
+    particle.style.left = Math.random() * window.innerWidth + "px";
+    particle.style.animationDuration = (Math.random() * 3 + 2) + "s";
+    document.body.appendChild(particle);
 }
 // make particles dispear on a separate button click//
 function clearParticles() {
-    var particles = document.getElementsByClassName("particle");
+    var particles = document.getElementsByClassName("particle");    
     while (particles[0]) {
         particles[0].parentNode.removeChild(particles[0]);
     }
+}
+// expose functions for inline HTML `onclick` handlers
+if (typeof window !== 'undefined') {
+    window.makeParticles = createParticles;
+    window.clearParticles = clearParticles;
 }
