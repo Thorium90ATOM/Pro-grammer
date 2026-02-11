@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YF</title>
+    <link rel="stylesheet" href="../../cssfil/alltmulig.css">
+    <link rel="icon" href="../../Favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+    <h1>YFF statment</h1>
+
+    <script>
+        // an if statement is a code
+        // to check if something is true or false
+        // if the condition is true, the code inside the if statement will run
+
+        //input promt to determin if you are a kid or an adult
+        var age = prompt("what is your age?");
+
+
+        var agekid = 17;
+        var ageadult = 18;
+        //psudo code if age is less than ageadult, print "you are a kid"
+        if (age < ageadult) {
+            document.write("you are a kid <br>");
+        }
+
+        //if age is equal or higher than ageadult, print "you are an adult"
+        if (age >= ageadult) {
+            document.write("you are an adult <br>");
+        }
+
+        var svar = prompt("hvem skrev et dukkehjem?");
+        if (svar == "Henrik Ibsen") {
+            alert("correct");
+        } else {
+            alert("wrong");
+            document.write("takk for at du deltok");
+        }
+
+    </script>
+    <img id="imgkron">
+    <script>
+        var imgkron = document.getElementById("imgkron");
+        var randomNumber = Math.random();
+        if (randomNumber < 0.5) {
+            imgkron.src = "Head.png";
+        } else {
+            imgkron.src = "Tail.png";
+        }
+
+        var navn = prompt("Hva heter du?");
+    </script>
+    <br>
+    <script>
+        if (navn === "Anna") {
+            document.write("Hei Anna!");
+        } else {
+            document.write("Hei, ukjent bruker!");
+        }
+
+        var svar = prompt("Hva er 2 + 2?");
+
+        if (svar == 4) {
+            document.write("<br>Du svarte riktig!");
+        } else {
+            document.write("Du svarte feil!");
+        }
+
+        var svar = prompt("hvem skrev et dukkehjem?");
+        if (svar == "Henrik Ibsen") {
+            document.write("<br>correct");
+        } else if (svar == "henrik" || svar == "ibsen") {
+            document.write("<br>close enough");
+        } else {
+            document.write("<br>wrong");
+        }
+    </script>
+    <br><br>
+    <script>
+        //terningkast
+        var tern1 = Math.floor(Math.random() * 6) + 1;
+        var tern2 = Math.floor(Math.random() * 6) + 1;
+        var tern3 = Math.floor(Math.random() * 6) + 1;
+        document.write("resultat av terningkast: " + tern1 + ", " + tern2 + ", " + tern3);
+        if (tern1 == tern2 && tern2 == tern3) {
+            document.write("<br>Du fikk trilling!");
+        } else if (tern1 == tern2 || tern1 == tern3 || tern2 == tern3) {
+            document.write("<br>Du fikk par!");
+        } else {
+            document.write("<br>Du fikk ingen like!");
+        }
+        var sum = tern1 + tern2 + tern3;
+        if (sum >= 15) {
+            document.write("<br>Du vant!");
+        } else {
+            document.write("<br>Du tapte!");
+        }   
+    </script>
+
+</body>
+
+</html>

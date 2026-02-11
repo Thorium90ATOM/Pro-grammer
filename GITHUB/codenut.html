@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kodesnutt</title>
+    <link rel="icon" href="../Favicon.ico" type="image/x-icon">  
+</head>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        padding: 50px;
+        color: aqua;
+        box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+    }
+
+    #gmil {
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: cyan;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    #gmil:hover {
+        background-color: lightblue;
+        scale: 1.1;
+    }
+
+    #gmil:active {
+        background-color: lightcyan;
+        scale: 0.9;
+    }
+</style>
+
+<body>
+
+    <h1>Kodesnutt#1</h1>
+    <button id="gmil">EMIL</button>
+    <script>
+        /* eit skript some gjer ein handling
+        basert på ein tilfeldig verdi.
+        blå og rød bakrund*/
+        var knapptrykk = document.getElementById("gmil");
+        knapptrykk.addEventListener("click", function () {
+            opdaterfarge();
+
+        });
+
+        function opdaterfarge() {
+            var randomNumber = Math.floor(Math.random() * 10);
+            if (randomNumber < 4) {
+                document.body.style.backgroundColor = "red";
+            } else if (randomNumber === 5) {
+                document.body.style.backgroundColor = "blue";
+            } else {
+                document.body.style.backgroundColor = "green";
+            }
+        }
+
+        opdaterfarge();
+    </script>
+</body>
+
+</html>

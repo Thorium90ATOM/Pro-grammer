@@ -43,3 +43,20 @@ if (typeof window !== 'undefined') {
     window.makeParticles = createParticles;
     window.clearParticles = clearParticles;
 }
+
+// variabler 
+var personnavn = "Mario"; //string
+var alder = 30; //integer
+var erdekome = true; //boolean
+var PI = 3.14159; //float
+var b = "nils"; //string + dårleg navnevalg
+
+//hvordan endre en variabel
+personnavn = "Luigi";
+alder = 28 * 2;
+erdekome = false;
+PI = 3.14;
+b = "ben e ein dritsekk"; //string
+
+
+
