@@ -111,6 +111,15 @@ button:hover {
         0 0 28px rgba(0, 255, 255, 0.18);
 }
 
+button:active {
+    transform: scale(0.98);
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow:
+        0 6px 25px rgba(0, 255, 255, 0.12),
+        0 0 20px rgba(150, 90, 255, 0.18),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.14);
+}
+
 
 .index-me {
     width: 145px;
@@ -252,14 +261,21 @@ button:hover {
         inset 0 0 0 1px rgba(101, 25, 25, 0.14);
 
     cursor: pointer;
-    transition: 0.5s ease;
+    transition: 0.25s ease;
 }
 
 .tilbake:hover {
     background-color: #ad040481;
     color: rgba(6, 168, 168, 0.473);
     box-shadow: 0 0 20px red;
-    transform: translate(6px, 10px) scale(1.02);
+    transform: translate(6px, 10px) scale(1.1);
+}
+
+.tilbake:active {
+    background-color: #ad040481;
+    color: rgba(4, 120, 120, 0.687);
+    box-shadow: 0 0 20px rgb(105, 2, 2);
+    transform: translate(6px, 10px) scale(1.03);
 }
 
 
@@ -292,32 +308,41 @@ button:hover {
     border-radius: 38px;
     border: 2px solid;
     border-color: #1500009d;
-
-
     background: rgba(255, 255, 255, 0.07);
     backdrop-filter: blur(25px) saturate(180%);
-
     color: #bfe7ff;
     font-size: 1.05rem;
     font-weight: 600;
-
     box-shadow:
         0 6px 25px rgba(0, 255, 255, 0.12),
         0 0 20px rgba(150, 90, 255, 0.18),
         inset 0 0 0 1px rgba(255, 255, 255, 0.14);
     align-content: center;
     text-align: center;
-    transition: 0.3s ease;
+    transition: 0.2s ease;
     min-width: 150px;
     cursor: pointer;
     box-shadow: 0 0 10px;
+    text-decoration: none;
 }
 
 .link-button:hover {
     background-color: rgba(255, 255, 255, 0.507);
     color: black;
     text-shadow: 0 0 10px rgba(127, 255, 212, 0.356), 0 0 20px rgba(0, 255, 255, 0.621);
-    transform: scale(1.05);
+    transform: scale(1.15) translate(10px, 2px);
+    box-shadow:
+        0 6px 25px rgba(2, 30, 30, 0.555),
+        0 0 20px rgba(25, 2, 65, 0.644),
+        inset 0 0 0 1px rgba(72, 1, 1, 0.45);
+    box-shadow: 0 0 10px;
+}
+
+.link-button:active {
+    background-color: rgba(255, 255, 255, 0.507);
+    color: black;
+    text-shadow: 0 0 10px rgba(127, 255, 212, 0.356), 0 0 20px rgba(0, 255, 255, 0.621);
+    transform: scale(0.8);
     transform: translate(10px, 10px);
     box-shadow:
         0 6px 25px rgba(2, 30, 30, 0.555),
