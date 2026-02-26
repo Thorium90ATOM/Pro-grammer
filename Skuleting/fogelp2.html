@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gemli</title>
+    <link rel="stylesheet" href="../cssfil/alltmulig.css">
+    <link rel="icon" href="../Favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+    <script>
+        var bilder = [];
+bilder.push("../bilte redrigos de potojop/bird1.jpg"); //0
+bilder.push("../bilte redrigos de potojop/bird2.jpg"); //1
+bilder.push("../bilte redrigos de potojop/bird3.webp");//2
+
+for(var i=0; i<bilder.length; i++)
+{
+document.write("<img src='" + bilder[i] + "' alt='bird " + (i+1) + "'>");
+}
+if(bilder[2] == "../bilte redrigos de potojop/bird3.webp")
+{
+    document.write("<p>This is the best bird</p>");
+}
+    </script>
+</body>
+
+</html>

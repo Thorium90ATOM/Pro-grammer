@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tilfeldige tall</title>
+    <link rel="stylesheet" href="../cssfil/alltmulig.css">
+</head>
+<body>
+    <h1>EMIL!!!</h1>
+    <script>
+// (tall1) hent eit tilfeldig tall mellom 0-10
+// (tall2) hent eit anna tall mellom 20-30
+// dersom tall1 > 5 og tall2 er 23 skriv "are you sure?"
+var tall1 = Math.floor(Math.random() * 11);
+var tall2 = Math.floor(Math.random() * 11) + 20;
+document.write("tall1: " + tall1 + "<br>");
+document.write("tall2: " + tall2 + "<br>");
+if (tall1 > 5 && tall2 === 23) {
+    document.write("are you sure? <br>");}
+    </script>
+</body>
+</html>

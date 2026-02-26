@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fogel</title>
+    <link rel="stylesheet" href="../../cssfil/alltmulig.css">
+    <link rel="icon" href="../../Favicon.ico" type="image/x-icon">
+
+</head>
+<style>
+    #bilde {
+        width: 300px;
+        height: 300px;
+        border: 2px solid rgb(2, 171, 213);
+        box-shadow: 0px 0px 10px rgb(2, 171, 213);
+        border-radius: 20%;
+        padding: 5px;
+        margin: auto;
+        transition: all 0.5s ease;;
+    }
+    #bilde:hover {
+        transform: scale(1.1);
+        box-shadow: 0px 0px 20px rgb(2, 171, 213);
+        border: 1px solid rgba(213, 58, 2, 0.735);
+        box-shadow: 0px 0px 20px rgba(213, 58, 2, 0.735);
+        rotate: 30deg;
+        transform: translate(50px);
+    }
+    #bilde:active {
+        transform: scale(0.9);
+        box-shadow: 0px 0px 5px rgb(2, 171, 213);
+        border: 1px solid rgba(213, 58, 2, 0.735);
+        box-shadow: 0px 0px 5px rgba(213, 58, 2, 0.735);
+    }
+
+    #bilde67 {
+        width: 300px;
+        height: 300px;
+        border: 2px solid rgb(2, 171, 213);
+        box-shadow: 0px 0px 10px rgb(2, 171, 213);
+        border-radius: 20%;
+        padding: 5px;
+        margin: auto;
+        transition: all 0.5s ease;;
+    }
+    #bilde67:hover {
+        transform: scale(1.1);
+        box-shadow: 0px 0px 20px rgb(2, 171, 213);
+        border: 1px solid rgba(213, 58, 2, 0.735);
+        box-shadow: 0px 0px 20px rgba(213, 58, 2, 0.735);
+        rotate: 30deg;
+        transform: translate(50px);
+    }
+    #bilde67:active {
+        transform: scale(0.9);
+        box-shadow: 0px 0px 5px rgb(2, 171, 213);
+        border: 1px solid rgba(213, 58, 2, 0.735);
+        box-shadow: 0px 0px 5px rgba(213, 58, 2, 0.735);
+    }
+</style>
+<body>
+    <h1>Fogel</h1>
+    
+   <img alt="Fogla" id="bilde">
+   <img alt="Fogla" id="bilde67">
+    <script>
+
+var bilde1 = "../../bilte redrigos de potojop/bird1.jpg";
+var bilde2 = "../../bilte redrigos de potojop/bird2.jpg";
+var bilde3 = "../../bilte redrigos de potojop/bird3.webp";
+var bildeNr = Math.floor(Math.random() * 3)
+var brukBilde
+if (bildeNr == 0) {
+    brukBilde = bilde1;
+} else if (bildeNr == 1) {
+    brukBilde = bilde2;
+} else {
+    brukBilde = bilde3;
+
+}
+document.getElementById("bilde").src = brukBilde;
+
+var bilder = [];
+bilder.push("../../bilte redrigos de potojop/bird1.jpg"); //0
+bilder.push("../../bilte redrigos de potojop/bird2.jpg"); //1
+bilder.push("../../bilte redrigos de potojop/bird3.webp");//2
+
+var bildeNr2 = Math.floor(Math.random() * bilder.length);
+document.getElementById("bilde67").src = bilder[bildeNr2];
+   </script>
+</body>
+
+</html>
