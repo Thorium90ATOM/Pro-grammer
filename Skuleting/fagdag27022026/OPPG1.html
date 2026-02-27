@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>oppgåve 1</title>
+    <link rel="stylesheet" href="../../cssfil/alltmulig.css">
+    <link rel="icon" href="../../Favicon.ico">
+</head>
+
+<body>
+    <a href="Index.html"><button class="tilbake">← Tilbake</button></a>
+    <h1>OPPGAVE 1</h1>
+    <br>
+    <h2>A)</h2>
+    <br>
+    <script>
+        //komentar oppgave 1 A) ord1 og ord2 er like, så if statementet vil skrive ut "Orda er like!" fordi dei e
+        var ord1 = "hei";
+        var ord2 = "hei";
+        document.write(ord1 + " og " + ord2 + "<br>");
+        if (ord1 == ord2) {
+            document.write("Orda er like!");
+        } else {
+            document.write("Orda er ulike!");
+        }
+
+        document.write("<br><br><h2>B)</h2><br><br>");
+        // komentar oppgave 1 B) ord1 og ord2 er ulike, så if statementet vil skrive ut "Orda er ulike!" fordi dei e ikkje like
+        function samanlikn() {
+            var ord1 = document.getElementById("ord1").value;
+            var ord2 = document.getElementById("ord2").value;
+            document.write(ord1 + " og " + ord2 + "<br>");
+            if (ord1 == ord2) {
+                document.write("Orda er like!");
+            } else {
+                document.write("Orda er ulike!");
+            }
+        }
+    </script>
+    <input type="text" id="ord1" placeholder="Skriv inn ord 1">
+    <input type="text" id="ord2" placeholder="Skriv inn ord 2">
+    <button id="FAGDAG27022026-oppg1-button" onclick="samanlikn()">Samanlikn orda</button>
+    <script>
+
+    </script>
+</body>
+
+</html>

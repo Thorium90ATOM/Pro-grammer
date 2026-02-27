@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fagdag Arbeid</title>
+    <link rel="stylesheet" href="../../cssfil/alltmulig.css">
+    <link rel="icon" href="../../Favicon.ico">
+</head>
+<body>
+
+    <div class="header">
+        <a href="../oppgaave-hub.html"><button class="tilbake">← Tilbake</button></a>
+        <h1>FAGDAG DEN 27.02.2026!!!!</h1><br>
+        <input type="text" id="searchBox" placeholder="Søk etter oppgave, f.eks. 'kode1' eller 'tabel'...">
+    </div>
+
+    <div class="button-container" id="buttonContainer">
+        <a href="27022026fd.html" class="link-button">ting ig?</a>
+        <a href="OPPG1.html" class="link-button">oppgåve 1</a>
+        <a href="OPPG2.html" class="link-button">oppgåve 2</a>
+        <a href="OPPG3.html" class="link-button">oppgåve 3</a>
+    </div>
+
+    <script>
+        const searchBox = document.getElementById('searchBox');
+        const buttons = document.querySelectorAll('.link-button');
+
+        searchBox.addEventListener('input', () => {
+            const searchTerm = searchBox.value.toLowerCase();
+            buttons.forEach(button => {
+                const text = button.textContent.toLowerCase();
+                if (text.includes(searchTerm)) {
+                    button.style.display = '';
+                } else {
+                    button.style.display = 'none';
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>

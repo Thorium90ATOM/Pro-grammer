@@ -471,3 +471,22 @@ button:active {
     width: fit-content;
     height: fit-content;
 }
+
+#FAGDAG27022026-oppg1-button {
+    width: 200px;
+    height: 50px;
+    border-radius: 25px;
+    border: 2px solid;
+    border-color: #15000080;
+    background: rgba(255, 255, 255, 0.07);
+    backdrop-filter: blur(25px) saturate(180%);
+    color: #bfe7ff;
+    font-size: 1.05rem;
+    font-weight: 600;
+    box-shadow:
+        0 6px 25px rgba(0, 255, 255, 0.12),
+        0 0 20px rgba(150, 90, 255, 0.18),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.14);
+    cursor: pointer;
+    transition: 0.25s ease;
+}

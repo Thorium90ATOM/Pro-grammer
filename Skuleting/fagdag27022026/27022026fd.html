@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../../cssfil/alltmulig.css">
+    <link rel="icon" href="../../Favicon.ico">
+
+</head>
+
+<body>
+     <a href="index.html"><button class="tilbake">← Tilbake</button></a>
+    <h1><u><b><i>FagDAG 27/02/2026</i></b></u></h1>
+    <h1>løkke (loop)</h1>
+<br>
+<script>
+    // s91 -> se korleis ein loop er satt opp
+    for(var i = 1; i < 11; i++) {
+     document.write("hei " + i + "<br>");
+    }
+
+    // froslag nr2, bruk av while loop
+    var teller = 0;
+    var fortsett = true;
+
+    while(fortsett == true) {
+        document.write ("hei <br>");
+        teller = teller + 15;
+        // add a code that stops the loop
+        // when teller = 10
+        if(teller >= 10) {
+            fortsett = false;
+        }   
+    }
+</script>
+<h1>gangetabelen</h1>
+<br>
+<script>
+  var TallKolonne = 1;
+  var TallRekke = 1;
+  var TotalSum = 0;
+  document.write ("--START--<br><br>");
+  // TODO
+
+    for(TallKolonne=1; TallKolonne <= 10; TallKolonne++) 
+    {
+        for(TallRekke=1; TallRekke <= 10; TallRekke++) 
+        {
+            var rekkeSvar = TallKolonne * TallRekke;
+            document.write(TallKolonne + " x " + TallRekke + " = " + rekkeSvar);
+            document.write("<br>");
+                TotalSum = TotalSum + rekkeSvar;
+        }
+            document.write("<br>");
+            
+    }
+    document.write ("<br>Total sum: " + TotalSum);
+    document.write ("<br>--DONE--"); 
+</script>
+<h1>Personregister</h1>
+<br>
+<script>
+// katalog med 5 personer, der me har navn, alder og lønn
+var person = [];
+person.push({navn:"Håvard-Aldal", alder:16, Salary:30000})
+person.push({navn:"Vlad-Is-Slave", alder:19, Salary:1000000})
+person.push({navn:"Svein-Gunnar", alder:35, Salary:40000})
+person.push({navn:"Bjarte-Emil", alder:44, Salary:69})
+person.push({navn:"Maksym-Is-Flyktning", alder:17, Salary:2000})
+
+var gjennomsnittslønn = 0;
+//gå igjennom alle personer
+// person.length = antall personer i katalogen
+for(var i =0; i < person.length; i++) {
+   document.write("-" + person[i].navn + "-<br>"); 
+   document.write("Alder: " + person[i].alder + "<br>");
+   document.write("Lønn: " + person[i].Salary + "kr" + "<br><br>");
+   // dersom personen sin alder er yngre enn 45
+   // og salary < 30000, skriv ut "no må du skaffa deg jobb, " + person[i].navn
+    if(person[i].alder < 45 && person[i].Salary < 10000) {
+     document.write("no må du skaffa deg jobb, " + person[i].navn + "<br><br>");
+ 
+    }
+gjennomsnittslønn = gjennomsnittslønn + person[i].Salary;
+document.write("<br><br>")
+}
+gjennomsnittslønn = gjennomsnittslønn / person.length;
+document.write("Gjennomsnittslønn: " + gjennomsnittslønn + "kr");
+
+</script>
+</body>
+
+</html>

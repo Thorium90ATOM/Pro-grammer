@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>oppgåve 2</title>
+    <link rel="stylesheet" href="../../cssfil/alltmulig.css">
+   <link rel="icon" href="../../Favicon.ico">
+</head>
+<body>
+    <a href="Index.html"><button class="tilbake">← Tilbake</button></a>
+    <h1>OPPGAVE 2</h1>
+    <br>
+    <h2>A)</h2>
+    <br>
+    <script>
+        // komentar oppgave 2 A) for løkka starter på 0 og går til og med 40,
+        for (var i = 0; i <= 40; i++) {
+            if (i % 2 === 0) {
+                document.write(i + "<br>");
+            }
+        }
+document.write("<br><h2>B)</h2><br>") 
+
+//B. Same som oppgåve A
+var tilfeldigTall = Math.floor(Math.random() * 41); // Genererer et tilfeldig tall mellom 0 og 40
+document.write("Tilfeldig tall: " + tilfeldigTall + "<br>");
+for (var i = 0; i <= 40; i++) {
+    if (i % 2 === 0) {
+        document.write(i + "<br>");
+        if (i === tilfeldigTall) {
+            document.write("Partallet " + i + " er likt det tilfeldige tallet!<br>");
+            document.body.style.backgroundColor = "red"; //skal Endre bakgrunnsfargen til rød men bakrunds fargen er alereie farga
+        }
+    }
+}
+
+document.write("<br><h2>C)</h2><br>") 
+//C. ting
+var tilfeldigTall = Math.floor(Math.random() * 1001); // Genererer et tilfeldig tall mellom 0 og 1000
+document.write("Tilfeldig tall: " + tilfeldigTall + "<br>");
+for (var i = 0; i <= 1000; i++) {
+    if (i % 2 === 0) {
+        document.write(i + "<br>");
+        if (i === tilfeldigTall) {
+            document.write("Partallet " + i + " er likt det tilfeldige tallet!<br>");
+            document.body.style.backgroundColor = "blue"; //skal Endre bakgrunnsfargen til blå men bakrunds fargen er alereie farga
+        }
+    }
+}
+    </script>
+</body>
+
+</html>
