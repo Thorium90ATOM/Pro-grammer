@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>oppgåve 5</title>
+    <link rel="stylesheet" href="../../cssfil/alltmulig.css">
+    <link rel="icon" href="../../Favicon.ico">
+</head>
+
+<body>
+    <a href="Index.html"><button class="tilbake">← Tilbake</button></a>
+    <h1>OPPGAVE 5</h1>
+    <br>
+    <br>
+    <h2>A)</h2>
+    <script>
+        // dagens dato og klokkeslett.
+        function oppdaterTid() {
+            var nå = new Date();
+            var dato = nå.toLocaleDateString();
+            var tid = nå.toLocaleTimeString();
+            document.getElementById("tid").innerHTML = "Dagens dato: " + dato + "<br>Klokkeslett: " + tid;
+            document.title = tid
+        }
+        setInterval(oppdaterTid, 1000); // Oppdaterer hvert sekund
+        document.write('<div id="tid"></div>');
+
+        document.write("<br><h2>B)</h2>")
+        document.write ("se på titlen EMIL<br>")
+        document.write("<br><h2>C-D)</h2><br>")
+    </script>
+
+<h1>Alarmklokke</h1>
+<br>
+<br>
+    
+    <input type="time" id="alarmTime">
+    <button id="FAGDAG27022026-oppg1-button" onclick="addAlarm()">Legg til alarm</button>
+
+    <ul id="alarmList"></ul>
+    <h2 id="message" style="color: red;"></h2>
+
+    <audio id="alarmSound" src="../../bilte redrigos de potojop/susamogus.mp3"></audio>
+
+    <script>
+        let alarms = [];
+const alarmSound = document.getElementById('alarmSound');
+const messageDisplay = document.getElementById('message');
+
+function addAlarm() {
+    const timeInput = document.getElementById('alarmTime').value;
+    
+    if (timeInput && !alarms.includes(timeInput)) {
+        alarms.push(timeInput);
+        updateAlarmList();
+    }
+}
+
+function updateAlarmList() {
+    const list = document.getElementById('alarmList');
+    list.innerHTML = ""; 
+    
+    alarms.forEach(time => {
+        const li = document.createElement('li');
+        li.textContent = `Alarm sett til: ${time}`;
+        list.appendChild(li);
+    });
+}
+
+// Sjekk tida kvart sekund
+setInterval(() => {
+    const now = new Date();
+    // Formaterer tida til "HH:MM" for å matche input-formatet
+    const currentTime = now.getHours().toString().padStart(2, '0') + ":" + 
+                        now.getMinutes().toString().padStart(2, '0');
+
+    // Sjekk om dagens tid finst i alarm-lista vår
+    if (alarms.includes(currentTime)) {
+        triggerAlarm(currentTime);
+    }
+}, 1000);
+
+function triggerAlarm(time) {
+    messageDisplay.textContent = `AMOGUS ${time}!`;
+    alarmSound.play();
+
+    // Fjern alarmen etter at den er utløyst så den ikkje pip kvart sekund i eit minutt
+    alarms = alarms.filter(a => a !== time);
+    updateAlarmList();
+}
+    </script>
+</body>
+
+</html>

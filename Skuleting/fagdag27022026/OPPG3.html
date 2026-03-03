@@ -15,6 +15,24 @@
     <br>
     <h2>A)</h2>
     <br>
+    <script>
+        // A. Lag en kode som spør brukeren om fødselsåret og regn ut alderen til personen. Vis alderen på skjermen.
+         var fødselsår = prompt("Skriv inn fødselsåret ditt:");
+            var nåværendeÅr = new Date().getFullYear();
+            var alder = nåværendeÅr - fødselsår;
+            document.write("Du er " + alder + " år gammel. <br>");
+         
+            document.write("<br><h2>B)</h2><br>") 
+
+        // B. #utviding
+        var alderIveker = Math.floor(alder * 52.1429); // Da e omtrent 52.1429 uker i et år
+        var alderIdager = Math.floor(alder * 365.25); // Da e omtrent 365.25 dager i et år (inkludert skuddår)
+        var alderIttimer = Math.floor(alder * 365.25 * 24); // Da e 24 timar i et døgn
+        document.write("Du er " + alder + " år gammel.<br>");
+        document.write("Du er " + alderIveker + " uker gammel.<br>");
+        document.write("Du er " + alderIdager + " dager gammel.<br>");
+        document.write("Du er " + alderIttimer + " timer gammel.<br>");
+    </script>
   
 </body>
 

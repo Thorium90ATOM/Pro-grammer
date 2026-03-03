@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="no">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clicker detector</title>
+    <link rel="stylesheet" href="../../cssfil/alltmulig.css">
+    <link rel="icon" href="../../Favicon.ico">
+    <style>
+        body{ 
+            user-select: none;
+        }
+        iframe{
+        border: 2px solid red;
+        border-radius: 20%;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Leif Clicker</h2>
+   <h1>Clicks: <span id="count">0</span></h1>
+   <script>
+    var deduction = 2
+    var timerclick = 0
+    let clicks = 0;
+    document.addEventListener("click", () => { clicks++; document.getElementById("count").textContent = clicks; });
+
+    setInterval(() => { 
+clicks = clicks - deduction; 
+timerclick = timerclick + 1 
+document.getElementById("count").textContent = clicks;
+
+if (timerclick >= 2 && timerclick % 2 === 0) {
+    deduction = 3 + (timerclick / 2 - 1);
+}
+
+    }, 1000); 
+    
+    //add high score opleg
+
+    </script>
+</body>
+
+</html>
