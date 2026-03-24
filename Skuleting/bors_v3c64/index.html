@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="no">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Enkelt prosjekt</title>
+<link rel="stylesheet" href="css/style.css" />
+
+</head>
+<body>
+<a href="../oppgaave-hub.html"><button class="tilbake">EXIT</button></a>
+<br>
+<br>
+<h1>Oslo børs</h1>
+
+<div id="gameplay" style="width: 650px; height: 600px">
+
+  <button id="newDay">Ny dag</button>
+  <label id="dag">---</label>
+  <label id="month">----</label>
+  <label id="year">----</label>
+  <label id="balance">0.0000</label>
+
+  <!-- news/events go here -->
+  <div id="news" style="margin:10px 0; font-weight:bold;"></div>
+
+  <!-- stock table will be rebuilt by JS -->
+  <div id="stocklist"></div>
+
+</div>
+<script src="js/app.js"></script>
+</body>
+</html>

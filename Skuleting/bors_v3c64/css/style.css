@@ -1,0 +1,93 @@
+:root{
+  --backround-color: #3f2cc9;
+  --highlight-color: #8372f9;
+}
+
+
+@font-face {
+  font-family: "C64"; /* Choose a name for your font */
+  src: url("Font.otf") format("opentype"); /* Specify the path and format */
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap; /* Optional: controls how the font loads */
+}
+
+
+body{
+  user-select: none;
+  font-family: "C64";
+  font-size: xx-small;
+  background-color: var(--backround-color);
+  padding: 15px;
+  margin: 0;
+  color: var(--highlight-color);
+}
+
+button{
+background-color: transparent;
+border: 3px solid var(--highlight-color);
+color: var(--highlight-color);
+font-family: "C64";
+font-size: xx-small;
+}
+
+button:hover{
+  scale: 1.05;
+  color: rgb(143, 195, 240);
+  border-color: rgb(143, 195, 240);
+}
+
+#stocklist {
+  width: 100%;
+  margin: 0 auto; /* center within parent */
+  text-align: center; /* center cell contents */
+}
+
+#stocklist th, #stocklist td {
+  border: 1px solid #000000;
+  padding: 6px;
+  text-align: center;
+}
+
+
+
+.tilbake {
+    transform: translate(6px, 10px);
+    width: 129px;
+    height: 40px;
+    border: none;
+
+
+    background: var(--backround-color);
+    backdrop-filter: blur(25px) saturate(180%);
+
+    color: #ffffff;
+    font-size: 1.05rem;
+    font-weight: 600;
+
+    box-shadow:
+        0 6px 25px rgba(88, 1, 82, 0.12),
+        0 0 20px rgba(38, 1, 102, 0.18),
+        inset 0 0 0 1px rgba(101, 25, 25, 0.14);
+
+    cursor: pointer;
+    transition: 0.25s ease;
+}
+
+.tilbake:hover {
+    background-color: var(--backround-color);
+    color: var(--highlight-color);
+    box-shadow: 0 0 20px red;
+    transform: translate(6px, 10px) scale(1.1);
+}
+
+.tilbake:active {
+    background-color: #ad040481;
+    color: rgba(4, 120, 120, 0.687);
+    box-shadow: 0 0 20px rgb(105, 2, 2);
+    transform: translate(6px, 10px) scale(1.03);
+}
+
+thead{
+  background-color: transparent;
+}

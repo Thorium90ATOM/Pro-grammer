@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="no">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Jungle Diff</title>
+    <link rel="icon" href="../../Favicon.ico">
+    <link rel="stylesheet" href="GFX/css.css">
+</head>
+
+<body>
+    <a href="../oppgaave-hub.html" style="user-select: none;"><button class="tilbake">FF 15</button></a>
+    <h1 >Swain Crow Executioner</h1>
+    <div id="topmeny">
+        <div>
+            Poeng:
+            <span id="poeng">0</span>
+        </div>
+        <div>
+            <button id="restartGame">Restart</button>
+            <button id="fullscreenBtn">Fullscreen</button>
+        </div>
+    </div>
+
+    <canvas id="game" style="border: 5px solid black; border-radius: 2px; user-select: none; max-width: 100%; height: auto;">
+    </canvas>
+
+    <script>
+        const canvas = document.getElementById("game");
+        const scoreEl = document.getElementById("poeng");
+        const restartBtn = document.getElementById("restartGame");
+        const fullscreenBtn = document.getElementById("fullscreenBtn");
+        const ctx = canvas.getContext("2d");
+        const birdImg = new Image();
+        birdImg.src = "GFX/bird1.jpg";
+
+        // Detect mobile
+        const isMobile = window.innerWidth < 768 || 'ontouchstart' in window;
+
+        // Adjust canvas size for mobile
+        if (isMobile) {
+            canvas.width = Math.min(window.innerWidth - 20, 800);
+            canvas.height = canvas.width * 400 / 600;
+        } else {
+            canvas.width = 600;
+            canvas.height = 400;
+        }
+
+        // Set permanent background GIF
+        canvas.style.backgroundImage = 'url(GFX/background.gif)';
+        canvas.style.backgroundSize = 'cover';
+        canvas.style.backgroundRepeat = 'no-repeat';
+        canvas.style.backgroundPosition = 'center';
+
+        const birdNames = ["Beatrice", "Rekverk", "Irene", "Keegan Michael Key", "Alsaker", "Ivar", "Lisbeth", "Biden", "Maksym", "sylvester stallone"];
+        let score = 0;
+        let gameOver = false;
+        let gameState = 'menu'; // 'menu', 'playing', 'gameOver'
+        const birds = [];
+        let nextSpawnTime = 0;
+        const hitmarkers = [];
+        let highScore = localStorage.getItem('duckHuntHighScore') || 0;
+        let startTime = 0;
+        let isFullscreen = false;
+        let bossSpawned = false;
+
+        // Sounds
+        const shootSoundSrc = 'GFX/Shootsound.ogg';
+        const hitSoundSrc = 'GFX/fogel lyd.mp3';
+
+
+
+
+        // Oppretter fuglen..
+        function makeBird() {
+            const baseSize = isMobile ? 50 + Math.random() * 20 : 34 + Math.random() * 18;
+            const sizeMultiplier = isFullscreen ? 2 : 1;
+            const size = baseSize * sizeMultiplier;
+            const direction = Math.random() < 0.5 ? -1 : 1;
+            const xStart = direction > 0 ? -size - Math.random() * 200 : canvas.width + Math.random() * 200;
+            const baseSpeed = 1.5 + Math.random() * 2.5;
+            const speedMultiplier = isFullscreen ? 1.5 : 1;
+            return {
+                size: size,
+                x: xStart,
+                y: 90 + Math.random() * (canvas.height - 180),
+                speed: baseSpeed * speedMultiplier,
+                direction: direction,
+                name: birdNames[Math.floor(Math.random() * birdNames.length)],
+                lives: 3,
+                isFalling: false,
+                reviveTime: 0,
+                isBoss: false
+            }
+
+        }
+
+        // Oppretter boss fuglen..
+        function makeBoss() {
+            const size = canvas.width * 0.15;
+            const direction = Math.random() < 0.5 ? -1 : 1;
+            const xStart = direction > 0 ? -size - Math.random() * 200 : canvas.width + Math.random() * 200;
+            const baseSpeed = 1.5 + Math.random() * 2.5;
+            const speedMultiplier = isFullscreen ? 1.5 : 1;
+            return {
+                size: size,
+                x: xStart,
+                y: 90 + Math.random() * (canvas.height - 180 - size), // adjust for size
+                speed: baseSpeed * speedMultiplier,
+                direction: direction,
+                vy: (Math.random() - 0.5) * 4, // vertical speed
+                name: "Goonter",
+                lives: 100,
+                isFalling: false,
+                reviveTime: 0,
+                isBoss: true
+            }
+        }
+
+        // Kode for å restarte spillet
+        function restartGame() {
+            score = 0;
+            gameOver = false;
+            gameState = 'playing';
+            bossSpawned = false;
+            birds.length = 0;
+            hitmarkers.length = 0;
+            startTime = Date.now();
+            nextSpawnTime = Date.now() + 1000 + Math.random() * 3000; // 1-4 seconds
+            // Opprett 3 fugler
+            for (let i = 0; i < 3; i++) {
+                birds.push(makeBird());
+            }
+            console.log(birds);
+
+        }
+
+        // Kode for å tegne sjølve spillet
+        function drawGame() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            if (gameState === 'menu') {
+                ctx.fillStyle = "rgba(0,0,0,0.7)";
+                ctx.fillRect(0,0,canvas.width, canvas.height);
+                ctx.fillStyle = "white";
+                ctx.textAlign = "center";
+                ctx.font = '18px "C64"';
+                ctx.fillText("Duck Hunt", canvas.width / 2, canvas.height / 2 - 50);
+                ctx.font = '12px "C64"';
+                ctx.fillText("Click to Start", canvas.width / 2, canvas.height / 2);
+                ctx.fillText("High Score: " + highScore, canvas.width / 2, canvas.height / 2 + 30);
+            } else if (gameState === 'playing') {
+                for (const bird of birds) {
+                    if (!bird.isFalling) {
+                        ctx.save();
+                        const cx = bird.x + bird.size / 2;
+                        const cy = bird.y + bird.size / 2;
+                        ctx.translate(cx, cy);
+                        if (bird.direction < 0) {
+                            ctx.scale(-1, 1);
+                        }
+                        ctx.drawImage(birdImg, -bird.size / 2, -bird.size / 2, bird.size, bird.size);
+                        ctx.restore();
+                        // Draw name and lives
+                        ctx.fillStyle = 'white';
+                        ctx.font = '10px "C64"';
+                        ctx.fillText(bird.name, bird.x, bird.y - 5);
+                        ctx.fillStyle = 'Fuchsia';
+                        ctx.font = '16px "C64"';
+                        ctx.fillText(bird.lives, bird.x, bird.y + bird.size + 5);
+                    } else {
+                        ctx.drawImage(birdImg, bird.x, bird.y, bird.size, bird.size);
+                    }
+                }
+
+                // Draw hitmarkers
+                for (const marker of hitmarkers) {
+                    if (Date.now() - marker.time < 500) {
+                        ctx.strokeStyle = 'red';
+                        ctx.lineWidth = 2;
+                        ctx.beginPath();
+                        ctx.moveTo(marker.x - 10, marker.y);
+                        ctx.lineTo(marker.x + 10, marker.y);
+                        ctx.moveTo(marker.x, marker.y - 10);
+                        ctx.lineTo(marker.x, marker.y + 10);
+                        ctx.stroke();
+                    }
+                }
+
+                // Draw score and bird count
+                ctx.fillStyle = 'white';
+                ctx.font = '12px "C64"';
+                ctx.textAlign = 'left';
+                ctx.fillText("Score: " + score, 10, 30);
+                ctx.fillText("Birds: " + birds.length, 10, 50);
+                const elapsed = Math.floor((Date.now() - startTime) / 1000);
+                const remaining = Math.max(0, 60 - elapsed);
+                ctx.fillText("Time: " + remaining + "s", 10, 70);
+            } else if (gameState === 'gameOver') {
+                ctx.fillStyle = "rgba(0,0,0,0.45)";
+                ctx.fillRect(0,0,canvas.width, canvas.height);
+                ctx.fillStyle = "white";
+                ctx.textAlign = "center";
+                ctx.font = '18px "C64"';
+                ctx.fillText("Time's Up!", canvas.width / 2, canvas.height / 2 - 50);
+                ctx.font = '14px "C64"';
+                ctx.fillText("Your Score: " + score, canvas.width / 2, canvas.height / 2 - 20);
+                ctx.fillText("High Score: " + highScore, canvas.width / 2, canvas.height / 2);
+                ctx.font = '12px "C64"';
+                ctx.fillText("Click to Restart", canvas.width / 2, canvas.height / 2 + 40);
+            }
+
+        }
+
+        function updateBirds() {
+            for (let i = birds.length - 1; i >= 0; i--) {
+                const bird = birds[i];
+                if (bird.isFalling) {
+                    if (bird.lives > 0) {
+                        bird.y = Math.min(bird.y + bird.speed / 2, canvas.height - bird.size);
+                    } else {
+                        bird.y += bird.speed;
+                    }
+                    if (bird.lives > 0 && Date.now() > bird.reviveTime) {
+                        // Revive the bird
+                        bird.isFalling = false;
+                        bird.direction = 1;
+                    } else if (bird.y > canvas.height + bird.size) {
+                        // Remove dead bird
+                        birds.splice(i, 1);
+                    }
+                } else {
+                    bird.x += bird.speed * bird.direction;
+
+                    if (bird.x + bird.size >= canvas.width) {
+                        bird.x = canvas.width - bird.size;
+                        bird.direction = -1;
+                    } else if (bird.x <= 0) {
+                        bird.x = 0;
+                        bird.direction = 1;
+                    }
+                    if (bird.isBoss) {
+                        bird.y += bird.vy;
+                        if (bird.y <= 0) {
+                            bird.y = 0;
+                            bird.vy = -bird.vy;
+                        } else if (bird.y + bird.size >= canvas.height) {
+                            bird.y = canvas.height - bird.size;
+                            bird.vy = -bird.vy;
+                        }
+                    }
+                }
+            }
+        }
+
+        // kode for å kjøyre spillet
+        // denne går i loop
+        function runGame() {
+            if (gameState === 'playing') {
+                // Check time limit
+                if (Date.now() - startTime >= 60000) {
+                    gameState = 'gameOver';
+                }
+                const elapsed = Math.floor((Date.now() - startTime) / 1000);
+                const remaining = 60 - elapsed;
+                if (remaining <= 15 && !bossSpawned) {
+                    birds.length = 0;
+                    birds.push(makeBoss());
+                    bossSpawned = true;
+                    // Play boss spawn theme
+                    const bossSpawnAudio = new Audio('GFX/goonterspawntheme.mp3');
+                    bossSpawnAudio.volume = 1.0;
+                    bossSpawnAudio.play();
+                }
+                // Spawn new birds unpredictably
+                if (birds.length < 50 && Date.now() > nextSpawnTime && !bossSpawned) {
+                    birds.push(makeBird());
+                    nextSpawnTime = Date.now() + 1000 + Math.random() * 3000; // 1-4 seconds
+                }
+                // Oppdater fuglar
+                updateBirds();
+                // Clean up old hitmarkers
+                hitmarkers.splice(0, hitmarkers.length, ...hitmarkers.filter(marker => Date.now() - marker.time < 80));
+            }
+            // Tegne opp på skjermen
+            drawGame();
+
+            requestAnimationFrame(runGame);
+        }
+
+        function shootingBirds(mousePos) {
+            if (gameState === 'playing') {
+                new Audio(shootSoundSrc).play();
+                const margin = isMobile ? 25 : 12;
+                for (const bird of birds) {
+                    const hitX = mousePos.x >= bird.x - margin && mousePos.x < bird.x + bird.size + margin;
+                    const hitY = mousePos.y >= bird.y - margin && mousePos.y < bird.y + bird.size + margin;
+
+                    if (hitX == true && hitY == true && !bird.isFalling) {
+                        const hitAudio = new Audio(hitSoundSrc);
+                        hitAudio.volume = 1.0;
+                        hitAudio.play();
+                        bird.lives--;
+                        if (bird.isBoss) {
+                            if (bird.lives <= 0) {
+                                bird.isFalling = true;
+                                score += 100;
+                                scoreEl.textContent = score;
+                                if (score > highScore) {
+                                    highScore = score;
+                                    localStorage.setItem('duckHuntHighScore', highScore);
+                                }
+                            } else {
+                                // Boss hit but still alive, maybe change direction
+                                if (Math.random() < 0.3) {
+                                    bird.direction = -bird.direction;
+                                    bird.vy = (Math.random() - 0.5) * 4;
+                                }
+                            }
+                        } else {
+                            if (bird.lives > 0) {
+                                bird.isFalling = true;
+                                bird.reviveTime = Date.now() + 300;
+                            } else {
+                                bird.isFalling = true;
+                                score++;
+                                scoreEl.textContent = score;
+                                if (score > highScore) {
+                                    highScore = score;
+                                    localStorage.setItem('duckHuntHighScore', highScore);
+                                }
+                            }
+                        }
+                        hitmarkers.push({x: mousePos.x, y: mousePos.y, time: Date.now()});
+                    }
+
+                }
+            } else if (gameState === 'menu') {
+                restartGame();
+            } else if (gameState === 'gameOver') {
+                restartGame();
+            }
+        }
+
+        // Hent ut muskordinater
+        function getMousePos(e) {
+            const rect = canvas.getBoundingClientRect();
+            const scalex = canvas.width / rect.width;
+            const scaley = canvas.height / rect.height;
+            const clientX = e.clientX || (e.touches && e.touches[0] ? e.touches[0].clientX : 0);
+            const clientY = e.clientY || (e.touches && e.touches[0] ? e.touches[0].clientY : 0);
+            return {
+                x: (clientX - rect.left) * scalex,
+                y: (clientY - rect.top) * scaley
+            }
+        }
+
+        // Add the main code for the game.
+        restartBtn.addEventListener("click", restartGame);
+        fullscreenBtn.addEventListener("click", () => {
+            if (!document.fullscreenElement) {
+                canvas.requestFullscreen().catch(err => {
+                    console.log(`Error attempting to enable full-screen mode: ${err.message} (${err.name})`);
+                });
+            } else {
+                document.exitFullscreen();
+            }
+        });
+
+        // Handle fullscreen changes
+        document.addEventListener('fullscreenchange', () => {
+            if (document.fullscreenElement) {
+                // In fullscreen, resize canvas to screen size
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+                isFullscreen = true;
+            } else {
+                // Back to normal size
+                if (isMobile) {
+                    canvas.width = Math.min(window.innerWidth - 20, 800);
+                    canvas.height = canvas.width * 400 / 600;
+                } else {
+                    canvas.width = 600;
+                    canvas.height = 400;
+                }
+                isFullscreen = false;
+            }
+        });
+
+        // Registrer klikk i canvas
+        canvas.addEventListener("pointerdown", (e) => {
+            e.preventDefault();
+            const mouse = getMousePos(e);
+            console.log(mouse)
+            //Sjekk om muskordinat er treff
+            shootingBirds(mouse);
+        })
+
+        runGame();
+
+
+    </script>
+
+
+</body>
+
+</html>

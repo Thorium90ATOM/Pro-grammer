@@ -2,14 +2,25 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Inter", "SF Pro Display", sans-serif;
+    font-family: "C64";
+    font-size: x-small;
 }
 
 body {
     background: radial-gradient(circle at top, #1d024e, #150000 80%);
     color: #c8e8ff;
     overflow-x: hidden;
+    font-family: "C64";
+    font-size: xx-small;
+    filter: blur(0.5px);
+}
 
+@font-face {
+  font-family: "C64"; /* Choose a name for your font */
+  src: url("Font.otf") format("opentype"); /* Specify the path and format */
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap; /* Optional: controls how the font loads */
 }
 
 
@@ -42,7 +53,6 @@ body::before {
 
 
 h1 {
-
     text-align: center;
     font-size: 3rem;
     font-weight: 800;
@@ -293,6 +303,7 @@ button:active {
     outline: none;
     box-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
     transform: translate(15px, 0px);
+    font-size:x-small;
 }
 
 .button-container {
