@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin – Temadag 2026</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="admin.css" />
+</head>
+<body>
+
+  <!-- ========== NAVIGASJON ========== -->
+  <nav>
+    <div class="nav-inner">
+      <span class="nav-logo">Tema<span>dag</span> <span class="admin-badge">Admin</span></span>
+      <button class="nav-toggle" id="navToggle" aria-label="Opne meny" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">← Tilbake til sida</a></li>
+        <li><a href="pamelding.html" class="active">Påmeldingar</a></li>
+        <li><a href="aktivitetar.html">Aktivitetar</a></li>
+        <li><a href="forbetringar.html">Forbetringar</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ========== SIDEHODE ========== -->
+  <header class="page-header">
+    <div class="page-header-inner">
+      <h1>Påmeldingsoversikt</h1>
+      <p>Sjå og administrer alle påmeldingar til temadagen.</p>
+    </div>
+  </header>
+
+  <main>
+    <div class="section">
+
+      <!-- Statistikk-kort -->
+      <div class="stat-grid" id="statGrid">
+        <div class="stat-card">
+          <span class="stat-num" id="statTotal">0</span>
+          <span class="stat-label">Totalt påmeldte</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-num" id="statFotball">0</span>
+          <span class="stat-label">Fotball</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-num" id="statTegning">0</span>
+          <span class="stat-label">Tegning</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-num" id="statQuiz">0</span>
+          <span class="stat-label">Quiz</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-num" id="statNatursti">0</span>
+          <span class="stat-label">Natursti</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-num" id="statMusikk">0</span>
+          <span class="stat-label">Musikk</span>
+        </div>
+      </div>
+
+      <!-- Søk og filter -->
+      <div class="table-controls">
+        <input type="search" id="searchInput" placeholder="🔍 Søk på namn, klasse eller aktivitet..." class="search-input" />
+        <select id="filterAktivitet" class="filter-select">
+          <option value="">Alle aktivitetar</option>
+          <option value="fotball">Fotball</option>
+          <option value="tegning">Tegning</option>
+          <option value="quiz">Quiz</option>
+          <option value="natursti">Natursti</option>
+          <option value="musikk">Musikk</option>
+        </select>
+        <select id="filterKlasse" class="filter-select">
+          <option value="">Alle klassar</option>
+          <option value="1A">1A</option>
+          <option value="1B">1B</option>
+          <option value="1C">1C</option>
+          <option value="2A">2A</option>
+          <option value="2B">2B</option>
+          <option value="2C">2C</option>
+          <option value="3A">3A</option>
+          <option value="3B">3B</option>
+        </select>
+        <button class="btn btn-sm" id="exportBtn" style="margin-left:auto;">📥 Eksporter CSV</button>
+      </div>
+
+      <!-- Tabell -->
+      <div class="table-wrapper">
+        <table class="admin-table" id="regTable">
+          <thead>
+            <tr>
+              <th data-sort="id">#</th>
+              <th data-sort="etternamn">Namn ↕</th>
+              <th data-sort="klasse">Klasse ↕</th>
+              <th data-sort="epost">E-post</th>
+              <th data-sort="aktivitet">Aktivitet ↕</th>
+              <th data-sort="tid">Tidspunkt ↕</th>
+              <th>Merknad</th>
+              <th>Slett</th>
+            </tr>
+          </thead>
+          <tbody id="tableBody">
+            <!-- Rader vert generert av JS -->
+          </tbody>
+        </table>
+        <p class="empty-msg" id="emptyMsg" hidden>Ingen påmeldingar passar søket.</p>
+      </div>
+
+      <p class="table-footer-note" id="tableCount"></p>
+
+    </div>
+  </main>
+
+  <!-- Slett-modal -->
+  <div class="modal-backdrop" id="modalBackdrop">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <h3 id="modalTitle">Slett påmelding</h3>
+      <p id="modalText">Er du sikker på at du vil slette denne påmeldinga?</p>
+      <div class="modal-actions">
+        <button class="btn btn-outline-dark" id="modalCancel">Avbryt</button>
+        <button class="btn btn-danger" id="modalConfirm">Ja, slett</button>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2026 EmilGoondal. @Thorium90.</p>
+  </footer>
+
+  <script src="main.js"></script>
+  <script src="adminData.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>

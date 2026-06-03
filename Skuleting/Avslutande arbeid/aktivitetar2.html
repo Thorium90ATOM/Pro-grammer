@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Oversikt over alle aktivitetar på temadagen 2026." />
+  <title>Aktivitetar – Temadag 2026</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ========== NAVIGASJON ========== -->
+  <nav>
+    <div class="nav-inner">
+      <span class="nav-logo">Tema<span>dag</span> 2026</span>
+      <button class="nav-toggle" id="navToggle" aria-label="Opne meny" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Heim</a></li>
+        <li><a href="aktivitetar.html" class="active">Aktivitetar</a></li>
+        <li><a href="pamelding.html">Meld deg på</a></li>
+        <li><a href="forbetringar.html">Forbetringar</a></li>
+        <li><a href="admin/index.html">Admin</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ========== SIDEHODE ========== -->
+  <header class="page-header">
+    <div class="page-header-inner">
+      <h1>Alle aktivitetar</h1>
+      <p>Her finn du ei full oversikt over kva som skjer på temadagen.</p>
+    </div>
+  </header>
+
+  <main>
+    <div class="section">
+
+      <!-- Filter og søk -->
+      <div class="akt-controls">
+        <input type="search" id="aktSok" placeholder="🔍 Søk etter aktivitet..." class="akt-search" />
+        <div class="filter-bar">
+          <button class="filter-btn active" data-filter="alle">Alle</button>
+          <button class="filter-btn" data-filter="sport">Sport</button>
+          <button class="filter-btn" data-filter="kreativt">Kreativt</button>
+          <button class="filter-btn" data-filter="kunnskap">Kunnskap</button>
+          <button class="filter-btn" data-filter="utandors">Utandørs</button>
+        </div>
+      </div>
+
+      <!-- Aktivitetsliste -->
+      <div class="akt-liste" id="aktListe">
+
+        <!-- Fotball -->
+        <article class="akt-kort" data-kategori="sport">
+          <div class="akt-kort-sidepanel akt-sport"></div>
+          <div class="akt-kort-innhald">
+            <div class="akt-kort-topp">
+              <div>
+                <h2 class="akt-tittel">Fotballturning</h2>
+                <span class="akt-kategori-tag">Sport</span>
+              </div>
+              <span class="badge badge-limited">Få plassar</span>
+            </div>
+            <p class="akt-beskriving">
+              5v5 fotballturning på skuleplassen. Lag vert sett saman på dagen ut frå påmeldingslista.
+              Ta med skiftetøy og vassflske. Alle nivå er velkomne – dette handlar om å ha det gøy!
+            </p>
+            <div class="akt-detaljar">
+              <div class="detalj-rad">
+                <span class="detalj-ikon">🕘</span>
+                <span><strong>Tid:</strong> 09:00 – 11:30</span>
+              </div>
+              <div class="detalj-rad">
+                <span class="detalj-ikon">📍</span>
+                <span><strong>Stad:</strong> Skuleplassen</span>
+              </div>
+              <div class="detalj-rad">
+                <span class="detalj-ikon">👨‍🏫</span>
+                <span><strong>Lærar:</strong> Knut Halvorsen</span>
+              </div>
+              <div class="detalj-rad">
+                <span class="detalj-ikon">🪑</span>
+                <span><strong>Plassar:</strong> 13 / 16 tekne</span>
+              </div>
+            </div>
+            <div class="akt-kort-botn">
+              <div class="kapasitet-mini">
+                <div class="kapasitet-mini-fill" style="width: 81%"></div>
+              </div>
+              <a href="pamelding.html?aktivitet=fotball" class="btn btn-primary btn-sm">Meld deg på</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Tegning -->
+        <article class="akt-kort" data-kategori="kreativt">
+          <div class="akt-kort-sidepanel akt-kreativt"></div>
+          <div class="akt-kort-innhald">
+            <div class="akt-kort-topp">
+              <div>
+                <h2 class="akt-tittel">Tegning og illustrasjon</h2>
+                <span class="akt-kategori-tag">Kreativt</span>
+              </div>
+              <span class="badge badge-available">Ledig</span>
+            </div>
+            <p class="akt-beskriving">
+              Lær grunnleggande teikneteknikkar som perspektiv, skuggelegging og komposisjon.
+              Du lagar di eiga illustrasjon som du får ta med heim. Alt utstyr vert delt ut – du treng ikkje ta med noko.
+            </p>
+            <div class="akt-detaljar">
+              <div class="detalj-rad">
+                <span class="detalj-ikon">🕙</span>
+                <span><strong>Tid:</strong> 10:00 – 12:00</span>
+              </div>
+              <div class="detalj-rad">
+                <span class="detalj-ikon">📍</span>
+                <span><strong>Stad:</strong> Klasserom B12</span>
+              </div>
+              <div class="detalj-rad">
+                <span class="detalj-ikon">👩‍🏫</span>
+                <span><strong>Lærar:</strong> Marit Vik</span>
+              </div>
+              <div class="detalj-rad">
+                <span class="detalj-ikon">🪑</span>
+                <span><strong>Plassar:</strong> 8 / 20 tekne</span>
+              </div>
+            </div>
+            <div class="akt-kort-botn">
+              <div class="kapasitet-mini">
+                <div class="kapasitet-mini-fill" style="width: 40%"></div>
+              </div>
+              <a href="pamelding.html?aktivitet=tegning" class="btn btn-primary btn-sm">Meld deg på</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Quiz -->
+        <article class="akt-kort" data-kategori="kunnskap">
+          <div class="akt-kort-sidepanel akt-kunnskap"></div>
+          <div class="akt-kort-innhald">
+            <div class="akt-kort-topp">
+              <div>
+                <h2 class="akt-tittel">Quiz-meisterskap</h2>
+                <span class="akt-kategori-tag">Kunnskap</span>
+              </div>
+              <span class="badge badge-available">Ledig</span>
+            </div>
+            <p class="akt-beskriving">
+              Generell quiz i lag på 4–6 personar. Kategoriar inkluderer geografi, popkultur,
+              vitskap, norgeshistorie og sport. Premiar til topp 3 lag! Lag vert sett saman på
+              staden – kom åleine eller saman med venner.
+            </p>
+            <div class="akt-detaljar">
+              <div class="detalj-rad">
+                <span class="detalj-ikon">🕙</span>
+                <span><strong>Tid:</strong> 10:00 – 11:30</span>
+              </div>
+              <div class="detalj-rad">
+                <span class="detalj-ikon">📍</span>
+                <span><strong>Stad:</strong> Aula</span>
+              </div>
+              <div class="detalj-rad">
+                <span class="detalj-ikon">👨‍🏫</span>
+                <span><strong>Lærar:</strong> Olav Dahl</span>
+              </div>
+              <div class="detalj-rad">
+                <span class="detalj-ikon">🪑</span>
+                <span><strong>Plassar:</strong> 6 / 24 tekne</span>
+              </div>
+            </div>
+            <div class="akt-kort-botn">
+              <div class="kapasitet-mini">
+                <div class="kapasitet-mini-fill" style="width: 25%"></div>
+              </div>
+              <a href="pamelding.html?aktivitet=quiz" class="btn btn-primary btn-sm">Meld deg på</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Natursti -->
+        <article class="akt-kort" data-kategori="utandors">
+          <div class="akt-kort-sidepanel akt-utandors"></div>
+          <div class="akt-kort-innhald">
+            <div class="akt-kort-topp">
+              <div>
+                <h2 class="akt-tittel">Natursti og orientering</h2>
+                <span class="akt-kategori-tag">Utandørs</span>
+              </div>
+              <span class="badge badge-available">Ledig</span>
+            </div>
+            <p class="akt-beskriving">
+              Følg naturstien rundt skulen med kart og kompass. Finn postar undervegs og svar på
+              spørsmål om natur og miljø. Passe tempo – passar for alle. Ta med vêrklede og godt
+              fottøy. Ruta er ca. 4 km.
+            </p>
+            <div class="akt-detaljar">
+              <div class="detalj-rad">
+                <span class="detalj-ikon">🕘</span>
+                <span><strong>Tid:</strong> 09:00 – 12:00</span>
+              </div>
+              <div class="detalj-rad">
+                <span class="detalj-ikon">📍</span>
+                <span><strong>Stad:</strong> Skogen bak skulen</span>
+              </div>
+              <div class="detalj-rad">
+                <span class="detalj-ikon">👩‍🏫</span>
+                <span><strong>Lærar:</strong> Anne Bergström</span>
+              </div>
+              <div class="detalj-rad">
+                <span class="detalj-ikon">🪑</span>
+                <span><strong>Plassar:</strong> 6 / 15 tekne</span>
+              </div>
+            </div>
+            <div class="akt-kort-botn">
+              <div class="kapasitet-mini">
+                <div class="kapasitet-mini-fill" style="width: 40%"></div>
+              </div>
+              <a href="pamelding.html?aktivitet=natursti" class="btn btn-primary btn-sm">Meld deg på</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Musikk -->
+        <article class="akt-kort" data-kategori="kreativt">
+          <div class="akt-kort-sidepanel akt-kreativt"></div>
+          <div class="akt-kort-innhald">
+            <div class="akt-kort-topp">
+              <div>
+                <h2 class="akt-tittel">Musikk og band</h2>
+                <span class="akt-kategori-tag">Kreativt</span>
+              </div>
+              <span class="badge badge-limited">Få plassar</span>
+            </div>
+            <p class="akt-beskriving">
+              Spel instrument, syng, eller lag beat på DAW. Du treng ikkje kunna spele frå før –
+              vi hjelper alle i gang. Aktiviteten avsluttast med ein liten konsert for kvarandre.
+              Tilgjengeleg utstyr: gitar, keyboard, trommer og PC med GarageBand.
+            </p>
+            <div class="akt-detaljar">
+              <div class="detalj-rad">
+                <span class="detalj-ikon">🕙</span>
+                <span><strong>Tid:</strong> 10:00 – 13:00</span>
+              </div>
+              <div class="detalj-rad">
+                <span class="detalj-ikon">📍</span>
+                <span><strong>Stad:</strong> Musikkrom</span>
+              </div>
+              <div class="detalj-rad">
+                <span class="detalj-ikon">👨‍🏫</span>
+                <span><strong>Lærar:</strong> Torbjørn Moe</span>
+              </div>
+              <div class="detalj-rad">
+                <span class="detalj-ikon">🪑</span>
+                <span><strong>Plassar:</strong> 8 / 12 tekne</span>
+              </div>
+            </div>
+            <div class="akt-kort-botn">
+              <div class="kapasitet-mini">
+                <div class="kapasitet-mini-fill" style="width: 66%"></div>
+              </div>
+              <a href="pamelding.html?aktivitet=musikk" class="btn btn-primary btn-sm">Meld deg på</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Volleyball -->
+        <article class="akt-kort akt-kort-full" data-kategori="sport">
+          <div class="akt-kort-sidepanel akt-sport"></div>
+          <div class="akt-kort-innhald">
+            <div class="akt-kort-topp">
+              <div>
+                <h2 class="akt-tittel">Volleyball</h2>
+                <span class="akt-kategori-tag">Sport</span>
+              </div>
+              <span class="badge badge-full">Fullt</span>
+            </div>
+            <p class="akt-beskriving">
+              Venleg volleyball-turnering i gymsalen. 6v6. Lag vert sett saman basert på
+              påmeldingslista. Denne aktiviteten er no fullteikna.
+            </p>
+            <div class="akt-detaljar">
+              <div class="detalj-rad">
+                <span class="detalj-ikon">🕙</span>
+                <span><strong>Tid:</strong> 10:00 – 12:30</span>
+              </div>
+              <div class="detalj-rad">
+                <span class="detalj-ikon">📍</span>
+                <span><strong>Stad:</strong> Gymsalen</span>
+              </div>
+              <div class="detalj-rad">
+                <span class="detalj-ikon">👩‍🏫</span>
+                <span><strong>Lærar:</strong> Silje Strand</span>
+              </div>
+              <div class="detalj-rad">
+                <span class="detalj-ikon">🪑</span>
+                <span><strong>Plassar:</strong> 20 / 20 tekne</span>
+              </div>
+            </div>
+            <div class="akt-kort-botn">
+              <div class="kapasitet-mini">
+                <div class="kapasitet-mini-fill akt-full-fill" style="width: 100%"></div>
+              </div>
+              <button class="btn btn-sm" disabled style="background:#444;color:#888;cursor:not-allowed;">Fullt</button>
+            </div>
+          </div>
+        </article>
+
+      </div><!-- /akt-liste -->
+
+      <p class="ingen-resultat" id="ingenResultat" hidden>Ingen aktivitetar passar søket ditt.</p>
+
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy;2026 EmilGoondal. @Thorium90.</p>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>

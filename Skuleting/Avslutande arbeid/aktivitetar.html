@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin – Aktivitetar – Temadag 2026</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="admin.css" />
+</head>
+<body>
+
+  <nav>
+    <div class="nav-inner">
+      <span class="nav-logo">Tema<span>dag</span> <span class="admin-badge">Admin</span></span>
+      <button class="nav-toggle" id="navToggle" aria-label="Opne meny" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">← Tilbake til sida</a></li>
+        <li><a href="pamelding.html">Påmeldingar</a></li>
+        <li><a href="forbetringar.html">Forbetringar</a></li>
+        <li><a href="aktivitetar.html" class="active">Aktivitetar</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <header class="page-header">
+    <div class="page-header-inner">
+      <h1>Aktivitetsoversikt</h1>
+      <p>Sjå kapasitet og påmelde per aktivitet.</p>
+    </div>
+  </header>
+
+  <main>
+    <div class="section">
+
+      <div class="akt-grid" id="aktGrid">
+        <!-- Generert av JS -->
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 EmilGoondal. @Thorium90.</p>
+  </footer>
+
+  <script src="main.js"></script>
+  <script src="adminData.js"></script>
+  <script src="aktivitetar.js"></script>
+</body>
+</html>

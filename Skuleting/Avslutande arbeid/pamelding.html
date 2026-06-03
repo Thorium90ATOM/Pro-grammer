@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Meld deg på aktivitetar på temadagen 2026." />
+  <title>Påmelding – Temadag 2026</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="pamelding.css" />
+</head>
+<body>
+
+  <!-- ========== NAVIGASJON ========== -->
+  <nav>
+    <div class="nav-inner">
+      <span class="nav-logo">Tema<span>dag</span> 2026</span>
+      <button class="nav-toggle" id="navToggle" aria-label="Opne meny" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Heim</a></li>
+        <li><a href="aktivitetar.html">Aktivitetar</a></li>
+        <li><a href="pamelding.html" class="active">Meld deg på</a></li>
+        <li><a href="adminindex.html">Admin</a></li>
+        <li><a href="forbetringar.html">Forbetringar</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ========== SIDEHODE ========== -->
+  <header class="page-header">
+    <div class="page-header-inner">
+      <h1>Påmelding</h1>
+      <p>Fyll inn skjemaet nedanfor for å melde deg på aktivitetar på temadagen.</p>
+    </div>
+  </header>
+
+  <!-- ========== HOVUDINNHALD ========== -->
+  <main>
+    <div class="form-layout section">
+
+      <!-- Skjema -->
+      <div class="form-card">
+        <h2 class="form-title">Påmeldingsskjema</h2>
+
+        <!-- Globalt feilmeldings-banner -->
+        <div class="alert alert-error" id="formError" role="alert" aria-live="polite" hidden>
+          <strong>Skjemaet inneheld feil.</strong> Rett opp NO!!!
+        </div>
+
+        <!-- Suksess-banner -->
+        <div class="alert alert-success" id="formSuccess" role="alert" aria-live="polite" hidden>
+          🎉 <strong>Påmeldinga er registrert!</strong> Du vil få ei stadfesting på e-post.
+        </div>
+
+        <div id="skjemaWrapper">
+          <!-- Personopplysningar -->
+          <fieldset class="form-group-set">
+            <legend>Personopplysningar</legend>
+
+            <div class="form-row two-col">
+              <div class="form-group">
+                <label for="fornamn">Fornamn <span class="required">*</span></label>
+                <input type="text" id="fornamn" name="fornamn"
+                       placeholder="Ola" autocomplete="given-name" />
+                <span class="field-error" id="fornamn-err"></span>
+              </div>
+              <div class="form-group">
+                <label for="etternamn">Etternamn <span class="required">*</span></label>
+                <input type="text" id="etternamn" name="etternamn"
+                       placeholder="Nordmann" autocomplete="family-name" />
+                <span class="field-error" id="etternamn-err"></span>
+              </div>
+            </div>
+
+            <div class="form-row two-col">
+              <div class="form-group">
+                <label for="epost">E-post <span class="required">*</span></label>
+                <input type="email" id="epost" name="epost"
+                       placeholder="ola@elev.no" autocomplete="email" />
+                <span class="field-error" id="epost-err"></span>
+              </div>
+              <div class="form-group">
+                <label for="klasse">Klasse <span class="required">*</span></label>
+                <select id="klasse" name="klasse">
+                  <option value="">– Vel klasse –</option>
+                  <option value="1A">1IMA</option>
+                  <option value="1B">1SRA</option>
+                  <option value="1C">10D</option>
+                  <option value="2A">2A</option>
+                  <option value="2B">2B</option>
+                  <option value="2C">2C</option>
+                  <option value="3A">3A</option>
+                  <option value="3B">3B</option>
+                </select>
+                <span class="field-error" id="klasse-err"></span>
+              </div>
+            </div>
+
+          </fieldset>
+
+          <!-- Aktivitetsval -->
+          <fieldset class="form-group-set">
+            <legend>Aktivitetsval</legend>
+
+            <div class="form-group">
+              <label for="aktivitet">Aktivitet <span class="required">*</span></label>
+              <select id="aktivitet" name="aktivitet">
+                <option value="">– Vel aktivitet –</option>
+                <option value="fotball">Fortnite Battle Royale (09:00–19:30) – 3 plassar igjen</option>
+                <option value="tegning">Tegning og illustrasjon (10:00–12:00) – Ledig</option>
+                <option value="quiz">Quiz-meisterskap (10:00–11:30) – Ledig</option>
+                <option value="natursti">Natursti og orientering (09:00–12:00) – Ledig</option>
+                <option value="musikk">Musikk og band (10:00–13:00) – 4 plassar igjen</option>
+                <option value="volleyball" disabled>Volleyball – FULLT</option>
+              </select>
+              <span class="field-error" id="aktivitet-err"></span>
+            </div>
+
+            <!-- Info-boks som oppdaterast dynamisk med JS -->
+            <div class="activity-info-box" id="activityInfo" hidden>
+              <div class="ai-icon">ℹ️</div>
+              <div class="ai-text" id="activityInfoText"></div>
+            </div>
+
+          </fieldset>
+
+          <!-- Ekstra info -->
+          <fieldset class="form-group-set">
+            <legend>Tilleggsinformasjon</legend>
+
+            <div class="form-group">
+              <label for="merknad">Merknad / Allergiar / Spesielle behov</label>
+              <textarea id="merknad" name="merknad" rows="4"
+                        placeholder="Skriv inn om du har nokre spesielle behov eller merknader..."></textarea>
+              <span class="char-count" id="merknadCount">0 / 300 teikn</span>
+            </div>
+
+            <div class="form-group checkbox-group">
+              <label class="checkbox-label">
+                <input type="checkbox" id="samtykke" name="samtykke" />
+                <span>Eg samtykkjer til at skulen lagrar opplysningane mine i samband med temadagen. <span class="required">*</span></span>
+              </label>
+              <span class="field-error" id="samtykke-err"></span>
+            </div>
+
+          </fieldset>
+
+          <div class="form-actions">
+            <button type="button" class="btn btn-outline-dark" id="nullstillBtn">Nullstill</button>
+            <button type="button" class="btn btn-primary" id="sendBtn">Send inn påmelding</button>
+          </div>
+        </div><!-- /skjemaWrapper -->
+      </div><!-- /form-card -->
+
+      <!-- Sidebar med info -->
+      <aside class="form-sidebar">
+        <div class="sidebar-card">
+          <h3>📅 Viktige datoar</h3>
+          <ul class="info-list">
+            <li><strong>Påmeldingsfrist:</strong><br>Fredag 5. juni 2026</li>
+            <li><strong>Temadag:</strong><br>Fredag 12. juni 2026</li>
+            <li><strong>Stadfesting på e-post:</strong><br>Innan 1 veke etter påmelding</li>
+          </ul>
+        </div>
+
+        <div class="sidebar-card">
+          <h3>❓ Spørsmål?</h3>
+          <p>Ta kontakt med kontaktlæraren din eller send e-post til:</p>
+          <a href="mailto:temadag@skule.no" class="sidebar-link">temadag@skule.no</a>
+        </div>
+
+        <div class="sidebar-card">
+          <h3>📋 Hugseregel</h3>
+          <ul class="info-list">
+            <li>Du kan berre melde deg på éi aktivitet</li>
+            <li>Påmeldinga er låvlig bindande</li>
+            <li>Kontakt Benn om du må melde deg av</li>
+          </ul>
+        </div>
+      </aside>
+
+    </div><!-- /form-layout -->
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <footer>
+    <p>&copy; 2026 EmilGoondal. @Thorium90.</p>
+  </footer>
+
+  <script src="main.js"></script>
+  <script src="validering.js"></script>
+</body>
+</html>

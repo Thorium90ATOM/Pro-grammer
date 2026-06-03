@@ -2,21 +2,21 @@
    Temadag – Hovudstil
    =========================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;1,9..144,300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quantico:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
 /* --- Fargar og variablar --- */
 :root {
-  --primary:     #1a5276;
-  --primary-lt:  #2e86c1;
-  --accent:      #e67e22;
-  --accent-lt:   #f39c12;
-  --bg:          #f4f6f8;
-  --bg-card:     #ffffff;
-  --text:        #1c2833;
-  --text-muted:  #5d6d7e;
-  --border:      #d5dbdb;
-  --success:     #27ae60;
-  --danger:      #e74c3c;
+  --primary:     #1d024e;
+  --primary-lt:  #150000;
+  --accent:      rgba(63, 42, 150, 0.655);
+  --accent-lt:   rgba(0, 255, 255, 0.671);
+  --bg:          #95cafe;
+  --bg-card:     #1d024e;
+  --text:        #72b1ff;
+  --text-muted:  #47596c;
+  --border:      #00ffff8f;
+  --success:     #04cd22ac;
+  --danger:      #ca1d0aab;
   --radius:      10px;
   --shadow:      0 2px 12px rgba(0,0,0,.09);
   --shadow-lg:   0 6px 28px rgba(0,0,0,.13);
@@ -29,7 +29,7 @@
 html { scroll-behavior: smooth; font-size: 16px; }
 
 body {
-  font-family: 'Outfit', sans-serif;
+  font-family: 'Quantico', sans-serif;
   background: var(--bg);
   color: var(--text);
   line-height: 1.6;
@@ -63,7 +63,7 @@ nav {
 }
 
 .nav-logo {
-  font-family: 'Fraunces', serif;
+  font-family: 'Quantico', serif;
   font-size: 1.35rem;
   font-weight: 600;
   color: #fff;
@@ -134,7 +134,7 @@ nav {
 .hero-inner { position: relative; max-width: 700px; margin: auto; }
 
 .hero h1 {
-  font-family: 'Fraunces', serif;
+  font-family: 'Quantico', serif;
   font-size: clamp(2rem, 5vw, 3.2rem);
   font-weight: 600;
   margin-bottom: .6rem;
@@ -259,7 +259,7 @@ main { flex: 1; }
 }
 
 .section-title {
-  font-family: 'Fraunces', serif;
+  font-family: 'Quantico', serif;
   font-size: 1.8rem;
   font-weight: 600;
   color: var(--primary);

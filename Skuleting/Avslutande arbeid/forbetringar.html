@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Forbetringar – Temadag 2026</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <nav>
+    <div class="nav-inner">
+      <span class="nav-logo">Tema<span>dag</span> 2026</span>
+      <button class="nav-toggle" id="navToggle" aria-label="Opne meny" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Heim</a></li>
+        <li><a href="aktivitetar.html">Aktivitetar</a></li>
+        <li><a href="pamelding.html">Meld deg på</a></li>
+        <li><a href="forbetringar.html">Forbetringar</a></li>
+        <li><a href="adminindex.html">Admin</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <header class="page-header">
+    <div class="page-header-inner">
+      <h1>Forbetringar</h1>
+      <p>Tilbakemeldingar frå elevar og eigne refleksjonar rundt vidareutvikling av løysinga.</p>
+    </div>
+  </header>
+
+  <main>
+    <div class="section forbetring-layout">
+
+      <!-- Elevtilbakemeldingar -->
+      <section class="forbetring-seksjon">
+        <h2 class="seksjon-tittel">Tilbakemeldingar frå elevar</h2>
+        <p class="seksjon-intro">
+          Eg viste prototypen til tre medelevar og bad dei gi tilbakemelding på kva dei likte,
+          kva som var vanskeleg å forstå, og kva dei ville ha endra.
+        </p>
+
+        <div class="feedback-grid">
+
+          <div class="feedback-kort">
+            <div class="feedback-topp">
+              <span class="feedback-avatar">E1</span>
+              <div>
+                <strong>Elev 1</strong>
+                <span class="feedback-klasse">VG1</span>
+              </div>
+            </div>
+            <blockquote>
+              "Sida ser bra ut og er lett å navigere. Eg likte at eg kunne filtere aktivitetar etter
+              type. Det einaste eg sakna var ein måte å sjå kva eg allereie hadde meldt meg på –
+              ein stadfestingsside eller liknande hadde vore nyttig."
+            </blockquote>
+            <div class="feedback-tags">
+              <span class="tag tag-pos">Enkel navigasjon</span>
+              <span class="tag tag-neg">Mangler stadfestingsside</span>
+            </div>
+          </div>
+
+          <div class="feedback-kort">
+            <div class="feedback-topp">
+              <span class="feedback-avatar">E2</span>
+              <div>
+                <strong>Elev 2</strong>
+                <span class="feedback-klasse">VG1</span>
+              </div>
+            </div>
+            <blockquote>
+              "Nedteljinga er kul! Eg ville hatt bilete av aktivitetane så det er lettare å
+              sjå kva som skjer. Fargane er litt intense på nokre skjermar, men det ser
+              stilig ut. Skjemaet var greitt å fylle ut."
+            </blockquote>
+            <div class="feedback-tags">
+              <span class="tag tag-pos">Nedteljing</span>
+              <span class="tag tag-neg">Vil ha bilete</span>
+              <span class="tag tag-neg">Fargane litt sterke</span>
+            </div>
+          </div>
+
+          <div class="feedback-kort">
+            <div class="feedback-topp">
+              <span class="feedback-avatar">E3</span>
+              <div>
+                <strong>Elev 3</strong>
+                <span class="feedback-klasse">VG1</span>
+              </div>
+            </div>
+            <blockquote>
+              "Bra at det er tydeleg kva plassar som er ledige. Eg ville hatt ein venteliste
+              om ein aktivitet er full. Kunne også vore mogleg å melde seg av sjølv utan å
+              kontakte skulen."
+            </blockquote>
+            <div class="feedback-tags">
+              <span class="tag tag-pos">Tydeleg kapasitet</span>
+              <span class="tag tag-neg">Venteliste</span>
+              <span class="tag tag-neg">Avmelding</span>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Eigne forbetringsforslag -->
+      <section class="forbetring-seksjon">
+        <h2 class="seksjon-tittel">Eigne forbetringsforslag</h2>
+        <p class="seksjon-intro">
+          Basert på tilbakemeldingane og eigne observasjonar under utviklinga har eg fleire
+          forslag til korleis løysinga kan forbetrast.
+        </p>
+
+        <div class="forbetring-liste">
+
+          <div class="forbetring-item prioritet-hoy">
+            <div class="forbetring-header">
+              <span class="forbetring-num">01</span>
+              <div>
+                <h3>Ekte databasetilkobling</h3>
+                <span class="prioritet-tag">Høg prioritet</span>
+              </div>
+            </div>
+            <p>
+              Per i dag brukar løysinga dummy-data i JavaScript. Ein ekte MySQL-database via
+              PHP eller Node.js ville gjort at påmeldingar faktisk vert lagra, og at admin
+              ser reelle tal. Dette er det viktigaste neste steget.
+            </p>
+          </div>
+
+          <div class="forbetring-item prioritet-hoy">
+            <div class="forbetring-header">
+              <span class="forbetring-num">02</span>
+              <div>
+                <h3>Stadfestings-e-post</h3>
+                <span class="prioritet-tag">Høg prioritet</span>
+              </div>
+            </div>
+            <p>
+              Når ein elev melder seg på bør det automatisk sendast ein stadfestings-e-post
+              med detaljar om aktiviteten. Dette krev ein back-end-løysing (t.d. PHP mail
+              eller ein e-posttjeneste som Mailgun).
+            </p>
+          </div>
+
+          <div class="forbetring-item prioritet-mid">
+            <div class="forbetring-header">
+              <span class="forbetring-num">03</span>
+              <div>
+                <h3>Venteliste for fulle aktivitetar</h3>
+                <span class="prioritet-tag">Medium prioritet</span>
+              </div>
+            </div>
+            <p>
+              Elevar som kjem for seint skal kunne melde seg på ei venteliste. Dersom nokon
+              melder seg av skal den første på ventelista få plass automatisk og bli varsla
+              på e-post.
+            </p>
+          </div>
+
+          <div class="forbetring-item prioritet-mid">
+            <div class="forbetring-header">
+              <span class="forbetring-num">04</span>
+              <div>
+                <h3>Sjølv-avmelding for elevar</h3>
+                <span class="prioritet-tag">Medium prioritet</span>
+              </div>
+            </div>
+            <p>
+              No må ein kontakte skulen for å melde seg av. Ein lenke i stadfestings-e-posten
+              (med unik token) som let eleven melde seg av sjølv ville gjort dette mykje enklare
+              for begge partar.
+            </p>
+          </div>
+
+          <div class="forbetring-item prioritet-lav">
+            <div class="forbetring-header">
+              <span class="forbetring-num">05</span>
+              <div>
+                <h3>Bilete og media for aktivitetar</h3>
+                <span class="prioritet-tag">Lav prioritet</span>
+              </div>
+            </div>
+            <p>
+              Å legge til bilete frå tidlegare temadag-aktivitetar ville gjort sidene meir
+              engasjerande og hjelpt elevane å forstå kva dei melder seg på. Admin-sida
+              burde få eit opplastingsfelt for dette.
+            </p>
+          </div>
+
+          <div class="forbetring-item prioritet-lav">
+            <div class="forbetring-header">
+              <span class="forbetring-num">06</span>
+              <div>
+                <h3>Innlogging for admin</h3>
+                <span class="prioritet-tag">Lav prioritet</span>
+              </div>
+            </div>
+            <p>
+              Admin-sidene er no opne for alle. I ein reell løysing måtte desse vore
+              beskytta med innlogging slik at berre autorisert personale kan sjå og redigere
+              påmeldingane.
+            </p>
+          </div>
+
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy;2026 EmilGoondal. @Thorium90.</p>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
